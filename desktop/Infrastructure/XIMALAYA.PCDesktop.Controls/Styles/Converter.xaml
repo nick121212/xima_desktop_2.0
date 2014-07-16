@@ -1,0 +1,11 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converter="http://ximalaya.com/xaml/tools/converter">
+    
+    <converter:LongToDateConverter x:Key="LongToDateConverter"/>
+    <converter:StringToBoolConverter x:Key="StringToBoolConverter"/>
+	<converter:MutiBoolConverter x:Key="MutiBoolConverter" />
+	<converter:HalfValueConverter x:Key="HalfValueConverter"/>
+	<BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    
+</ResourceDictionary>
