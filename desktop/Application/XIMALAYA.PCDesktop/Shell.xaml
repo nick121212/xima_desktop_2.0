@@ -1,13 +1,8 @@
 ﻿<Controls:MetroWindow x:Class="XIMALAYA.PCDesktop.Shell"
                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-<<<<<<< HEAD
                       xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
                       xmlns:MControls="http://ximalaya.com/xaml/controls"
-=======
-                      xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
-                      xmlns:lc="http://ximalaya.com/xaml/controls"
->>>>>>> origin/master
                       xmlns:cal="http://www.codeplex.com/prism"
                       xmlns:tools="http://ximalaya.com/xaml/tools"
                       xmlns:player="http://ximalaya.com/xaml/player"

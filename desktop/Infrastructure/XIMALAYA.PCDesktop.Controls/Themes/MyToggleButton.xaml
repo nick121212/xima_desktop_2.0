@@ -2,11 +2,10 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 					xmlns:local="clr-namespace:XIMALAYA.PCDesktop.Controls">
 
-    <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/XIMALAYA.PCDesktop.Controls;component/Styles/Converter.xaml" />
-    </ResourceDictionary.MergedDictionaries>
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary Source="pack://application:,,,/XIMALAYA.PCDesktop.Controls;component/Styles/Converter.xaml" />
+	</ResourceDictionary.MergedDictionaries>
 
-<<<<<<< HEAD
 	<ControlTemplate x:Key="MyToggleButtonTemplate" TargetType="local:MyToggleButton">
 		<Grid Background="Transparent">
 			<VisualStateManager.VisualStateGroups>
@@ -37,37 +36,11 @@
 					<VisualState x:Name="Pressed">
 						<Storyboard>
 							<DoubleAnimation Duration="0" 
-=======
-    <ControlTemplate x:Key="MyToggleButtonTemplate" TargetType="local:MyToggleButton">
-        <Grid Background="Transparent">
-            <VisualStateManager.VisualStateGroups>
-                <VisualStateGroup x:Name="CommonStates">
-                    <VisualState x:Name="Normal"/>
-                    <VisualState x:Name="MouseOver">
-                        <Storyboard>
-                            <DoubleAnimation Duration="0:0:0.2" 
 											 Storyboard.TargetName="Part_Scale" 
 											 Storyboard.TargetProperty="ScaleX" To="1"/>
-                            <DoubleAnimation Duration="0:0:0.2" 
+							<DoubleAnimation Duration="0" 
 											 Storyboard.TargetName="Part_Scale" 
 											 Storyboard.TargetProperty="ScaleY" To="1"/>
-
-                            <!--<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground">
-                                <DiscreteObjectKeyFrame KeyTime="0" Value="Red"/>
-                            </ObjectAnimationUsingKeyFrames>-->
-
-                        </Storyboard>
-                    </VisualState>
-                    <VisualState x:Name="Pressed">
-                        <Storyboard>
-                            <DoubleAnimation Duration="0" 
->>>>>>> origin/master
-											 Storyboard.TargetName="Part_Scale" 
-											 Storyboard.TargetProperty="ScaleX" To="1"/>
-                            <DoubleAnimation Duration="0" 
-											 Storyboard.TargetName="Part_Scale" 
-											 Storyboard.TargetProperty="ScaleY" To="1"/>
-<<<<<<< HEAD
 
 						</Storyboard>
 					</VisualState>
@@ -80,55 +53,21 @@
 					<VisualState x:Name="Checked">
 						<Storyboard>
 							<DoubleAnimation Duration="0:0:0.1" 
-=======
-              
-                            <!--<ColorAnimation Duration="0" Storyboard.TargetName="PART_RectangleFill" Storyboard.TargetProperty="Fill" To="#D8FFFFFF"/>-->
-                            <!--<ColorAnimation Duration="0:0:0.1" x:Name="Part_ColorAnimation" Storyboard.TargetName="PART_Fill" Storyboard.TargetProperty="(Ellipse.Fill).(SolidColorBrush.Color)" To="Transparent"/>-->
-                            <!--<ColorAnimation Duration="0" Storyboard.TargetName="EllipseScale" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" To="#FF6DBDD1"/>-->
-                            <!--<DoubleAnimation Duration="0" Storyboard.TargetName="BackgroundAnimation" Storyboard.TargetProperty="Opacity" To="1"/>
-							<ColorAnimation Duration="0" Storyboard.TargetName="BackgroundGradient" Storyboard.TargetProperty="(Rectangle.Fill).(GradientBrush.GradientStops)[0].(GradientStop.Color)" To="#D8FFFFFF"/>
-							<ColorAnimation Duration="0" Storyboard.TargetName="BackgroundGradient" Storyboard.TargetProperty="(Rectangle.Fill).(GradientBrush.GradientStops)[1].(GradientStop.Color)" To="#C6FFFFFF"/>
-							<ColorAnimation Duration="0" Storyboard.TargetName="BackgroundGradient" Storyboard.TargetProperty="(Rectangle.Fill).(GradientBrush.GradientStops)[2].(GradientStop.Color)" To="#8CFFFFFF"/>
-							<ColorAnimation Duration="0" Storyboard.TargetName="BackgroundGradient" Storyboard.TargetProperty="(Rectangle.Fill).(GradientBrush.GradientStops)[3].(GradientStop.Color)" To="#3FFFFFFF"/>-->
-                        </Storyboard>
-                    </VisualState>
-                    <VisualState x:Name="Disabled">
-                        <Storyboard>
-                            <!--<DoubleAnimation Duration="0" Storyboard.TargetName="DisabledVisualElement" Storyboard.TargetProperty="Opacity" To=".55"/>-->
-                        </Storyboard>
-                    </VisualState>
-                </VisualStateGroup>
-                <VisualStateGroup x:Name="CheckStates">
-                    <VisualState x:Name="Checked">
-                        <Storyboard>
-                            <DoubleAnimation Duration="0:0:0.1" 
->>>>>>> origin/master
 											 Storyboard.TargetName="contentPresenter" 
 											 Storyboard.TargetProperty="Opacity" To="0"/>
-                            <DoubleAnimation Duration="0:0:0.1" 
+							<DoubleAnimation Duration="0:0:0.1" 
 											 Storyboard.TargetName="contentCheckedPresenter" 
 											 Storyboard.TargetProperty="Opacity" To="1"/>
-<<<<<<< HEAD
 						</Storyboard>
 					</VisualState>
 					<VisualState x:Name="Unchecked">
 						<Storyboard>
 							<DoubleAnimation Duration="0:0:0.1" 
-=======
-                            <!--<PointAnimation Duration="0" To="0.7,1" Storyboard.TargetName="BackgroundGradient" Storyboard.TargetProperty="(Rectangle.Fill).(LinearGradientBrush.StartPoint)"/>
-							<PointAnimation Duration="0" To="0.7,0" Storyboard.TargetName="BackgroundGradient" Storyboard.TargetProperty="(Rectangle.Fill).(LinearGradientBrush.EndPoint)"/>-->
-                        </Storyboard>
-                    </VisualState>
-                    <VisualState x:Name="Unchecked">
-                        <Storyboard>
-                            <DoubleAnimation Duration="0:0:0.1" 
->>>>>>> origin/master
 											 Storyboard.TargetName="contentPresenter" 
 											 Storyboard.TargetProperty="Opacity" To="1"/>
-                            <DoubleAnimation Duration="0:0:0.1" 
+							<DoubleAnimation Duration="0:0:0.1" 
 											 Storyboard.TargetName="contentCheckedPresenter" 
 											 Storyboard.TargetProperty="Opacity" To="0"/>
-<<<<<<< HEAD
 						</Storyboard>
 					</VisualState>
 				</VisualStateGroup>
@@ -146,29 +85,11 @@
 					   Fill="{TemplateBinding BackgroundChecked}"/>
 
 			<Border x:Name="PART_Border"
-=======
-                            <!--<PointAnimation Duration="0" To="0.7,1" Storyboard.TargetName="BackgroundGradient" Storyboard.TargetProperty="(Rectangle.Fill).(LinearGradientBrush.StartPoint)"/>
-							<PointAnimation Duration="0" To="0.7,0" Storyboard.TargetName="BackgroundGradient" Storyboard.TargetProperty="(Rectangle.Fill).(LinearGradientBrush.EndPoint)"/>-->
-                        </Storyboard>
-                    </VisualState>
-                </VisualStateGroup>
-                <VisualStateGroup x:Name="FocusStates">
-                    <VisualState x:Name="Focused">
-                        <Storyboard>
-                            <!--<DoubleAnimation Duration="0" Storyboard.TargetName="FocusVisualElement" Storyboard.TargetProperty="Opacity" To="1"/>-->
-                        </Storyboard>
-                    </VisualState>
-                    <VisualState x:Name="Unfocused" />
-                </VisualStateGroup>
-            </VisualStateManager.VisualStateGroups>
-            <Border x:Name="PART_Border"
->>>>>>> origin/master
 					BorderBrush="{TemplateBinding BorderBrush}"
 				    BorderThickness="{TemplateBinding BorderThickness}"
 					Visibility="{TemplateBinding IsShowBorder,Converter={StaticResource BooleanToVisibilityConverter}}"
 					CornerRadius="{TemplateBinding CornerRadius}"
 					Opacity="1">
-<<<<<<< HEAD
 				<Rectangle x:Name="PART_Fill" 
 					   RadiusX="{TemplateBinding RadiusSize}"
 					   RadiusY="{TemplateBinding RadiusSize}"
@@ -227,55 +148,5 @@
 			</Trigger>
 		</Style.Triggers>
 	</Style>
-=======
-                <Rectangle x:Name="PART_Fill" 
-					   Visibility="{TemplateBinding IsShowBorder,Converter={StaticResource BooleanToVisibilityConverter}}"
-					   RadiusX="{TemplateBinding RadiusSize}"
-					   RadiusY="{TemplateBinding RadiusSize}"
-					   Fill="{TemplateBinding Background}">
-                    <Rectangle.RenderTransform>
-                        <TransformGroup>
-                            <TransformGroup.Children>
-                                <ScaleTransform x:Name="Part_Scale" 
-											    CenterX="{Binding ActualWidth, RelativeSource={RelativeSource FindAncestor, AncestorType=local:MyToggleButton},Converter={StaticResource HalfValueConverter}}"
-											    CenterY="{Binding ActualHeight,RelativeSource={RelativeSource FindAncestor, AncestorType=local:MyToggleButton},Converter={StaticResource HalfValueConverter}}"
-											    ScaleX="0" 
-											    ScaleY="0" />
-                            </TransformGroup.Children>
-                        </TransformGroup>
-                    </Rectangle.RenderTransform>
-                </Rectangle>
-            </Border>
-            <ContentPresenter x:Name="contentPresenter"
-                              Content="{TemplateBinding Content}"
-                              ContentTemplate="{TemplateBinding ContentTemplate}"
-                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                              Margin="{TemplateBinding Padding}"/>
-
-            <ContentPresenter x:Name="contentCheckedPresenter"
-                              Content="{TemplateBinding ContentChecked}"
-                              ContentTemplate="{TemplateBinding ContentTemplate}"
-                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                              Margin="{TemplateBinding Padding}"/>
-
-        </Grid>
-        <ControlTemplate.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Foreground" Value="Blue"/>
-            </Trigger>
-        </ControlTemplate.Triggers>
-    </ControlTemplate>
-
-    <Style TargetType="local:MyToggleButton">
-        <Setter Property="Template" Value="{StaticResource MyToggleButtonTemplate}"/>
-        <!--<Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Foreground" Value="Blue"/>
-            </Trigger>
-        </Style.Triggers>-->
-    </Style>
->>>>>>> origin/master
 
 </ResourceDictionary>

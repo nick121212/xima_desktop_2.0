@@ -106,10 +106,6 @@ namespace XIMALAYA.PCDesktop
             Binding binding = null;
             RelativeSource rs;
 
-<<<<<<< HEAD
-=======
-            
->>>>>>> origin/master
             this.CurrentFlyout.AnimateOnPositionChange = true;
             this.CurrentFlyout.Theme = FlyoutTheme.Adapt;
             this.CurrentFlyout.Header = header;
@@ -121,12 +117,7 @@ namespace XIMALAYA.PCDesktop
             this.CurrentFlyout.SetBinding(Flyout.WidthProperty, binding);
             RegionManager.SetRegionManager(this.CurrentFlyout, this.regionManager);
             RegionManager.SetRegionName(this.CurrentFlyout, regionName);
-<<<<<<< HEAD
             this.ContainerGrid.Items.Add(this.CurrentFlyout);
-=======
-            RegionManager.SetRegionManager(this.CurrentFlyout, this.regionManager);
-            this.Flyouts.Items.Add(this.CurrentFlyout);
->>>>>>> origin/master
             this.CurrentFlyout.ApplyTemplate();
             this.CurrentFlyout.IsOpenChanged += flyout_IsOpenChanged;
             this.CurrentFlyout.Position = Position.Right;

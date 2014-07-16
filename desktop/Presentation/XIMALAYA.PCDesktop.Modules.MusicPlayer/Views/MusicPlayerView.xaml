@@ -12,9 +12,6 @@
 
 	<UserControl.Resources>
 		<ResourceDictionary>
-			<ResourceDictionary.MergedDictionaries>
-				<ResourceDictionary Source="pack://application:,,,/XIMALAYA.PCDesktop.Controls;component/Themes/Generic.xaml" />
-			</ResourceDictionary.MergedDictionaries>
 			<tools:TimeSpanToDoubleConverter x:Key="TimeSpanToDoubleConverter"/>
 			<tools:TimeSpanConverter x:Key="TimeSpanConverter"></tools:TimeSpanConverter>
 			<BooleanToVisibilityConverter x:Key="BoolToVisibility"></BooleanToVisibilityConverter>
@@ -62,7 +59,6 @@
 					</Style>
 				</sound:SpectrumAnalyzer.PeakStyle>
 			</sound:SpectrumAnalyzer>
-<<<<<<< HEAD
 			<!--静音-->
 			<MControls:MyToggleButton Width="20" 
 								      Height="20"
@@ -86,22 +82,6 @@
 						  Width="10" Height="10"
 						  Fill="{Binding ForegroundChecked,RelativeSource={RelativeSource AncestorType={x:Type MControls:MyToggleButton}}}" >
 					</Path>
-=======
-
-			<MControls:MyToggleButton Width="30" 
-								      Height="30"
-								      IsChecked="{Binding BassEngine.IsMuted}"
-								      BorderType="Ellipse"
-								      Background="{DynamicResource AccentColorBrush2}"
-                                      Foreground="{DynamicResource AccentColorBrush}"
-								      BorderBrush="{DynamicResource AccentColorBrush}"
-								      BorderThickness="1">
-				<MControls:MyToggleButton.Content>
-					1
-				</MControls:MyToggleButton.Content>
-				<MControls:MyToggleButton.ContentChecked>
-					2
->>>>>>> origin/master
 				</MControls:MyToggleButton.ContentChecked>
 			</MControls:MyToggleButton>
 			<!--音量条-->
