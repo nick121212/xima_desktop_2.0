@@ -193,7 +193,7 @@ namespace XIMALAYA.PCDesktop.Modules.DiscoverPage
         {
             this.GetFocusImageDataAction();
 
-            this.GetHotSoundsAction();
+            //this.GetHotSoundsAction();
 
             this.GetCategoryListAction();
         }

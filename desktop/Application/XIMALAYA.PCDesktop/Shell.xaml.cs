@@ -119,11 +119,14 @@ namespace XIMALAYA.PCDesktop
             RegionManager.SetRegionName(this.CurrentFlyout, regionName);
             this.ContainerGrid.Items.Add(this.CurrentFlyout);
             this.CurrentFlyout.ApplyTemplate();
-            this.CurrentFlyout.IsOpenChanged += flyout_IsOpenChanged;
+            //this.CurrentFlyout.IsOpenChanged += flyout_IsOpenChanged;
+            this.CurrentFlyout.IsHideComplete += CurrentFlyout_IsHideComplete;
             this.CurrentFlyout.Position = Position.Right;
 
             return regionName;
         }
+
+        
 
         /// <summary>
         /// 新建层
@@ -177,25 +180,33 @@ namespace XIMALAYA.PCDesktop
 
             return regionName;
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void flyout_IsOpenChanged(object sender, EventArgs e)
-        {
-            Flyout flyout = sender as Flyout;
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        ///// <param name="sender"></param>
+        ///// <param name="e"></param>
+        //void flyout_IsOpenChanged(object sender, EventArgs e)
+        //{
+        //    Flyout flyout = sender as Flyout;
 
-            if (flyout.IsOpen == false)
-            {
-                if (LastFlyout != null)
-                {
-                    this.Flyouts.Items.Remove(LastFlyout);
-                    LastFlyout = null;
-                }
-                LastFlyout = flyout;
-                LastFlyout.Content = null;
-            }
+        //    if (flyout.IsOpen == false)
+        //    {
+        //        if (LastFlyout != null)
+        //        {
+        //            this.Flyouts.Items.Remove(LastFlyout);
+        //            LastFlyout = null;
+        //        }
+        //        LastFlyout = flyout;
+        //        LastFlyout.Content = null;
+        //    }
+        //}
+
+        void CurrentFlyout_IsHideComplete(object sender, EventArgs e)
+        {
+            var flyout = sender as Flyout;
+
+            flyout.Content = null;
+            this.ContainerGrid.Items.Remove(flyout);
         }
 
         #endregion

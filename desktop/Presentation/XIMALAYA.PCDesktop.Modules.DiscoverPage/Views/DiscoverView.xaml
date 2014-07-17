@@ -65,9 +65,9 @@
 				</ListBox>
 			</GroupBox>
 			<!--专题列表-->
-			<GroupBox Header="{Binding SubjectModuleTitle}"
+			<!--<GroupBox Header="{Binding SubjectModuleTitle}"
                       Style="{StaticResource MyMetroGroupBox}"
-                      Grid.Column="2" >
+                      Grid.Column="3" >
 				<ListBox Background="Transparent"
                          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                          ItemContainerStyle="{StaticResource MetroSubjectListStyle}" 
@@ -81,11 +81,41 @@
 						</ItemsPanelTemplate>
 					</ListBox.ItemsPanel>
 				</ListBox>
+			</GroupBox>-->
+			<!--功能-->
+			<GroupBox Header=""
+                      Style="{StaticResource MyMetroGroupBox}"
+                      Grid.Column="2" >
+				<MControls:TilePanel TileCount="4" 
+								     TileWidth="80" 
+									 TileMargin="2"
+								     TileHeight="88">
+					<Controls:Tile Title="喜马拉雅最佳播主"
+					   MControls:TilePanel.WidthPix="4">
+						最火播主
+					</Controls:Tile>
+					<Controls:Tile Title="喜马拉雅最好声音"
+					   MControls:TilePanel.WidthPix="4">
+						排行榜
+					</Controls:Tile>
+					<Controls:Tile Title="智能化个性电台，一键收听"
+					   MControls:TilePanel.WidthPix="4">
+						懒人电台
+					</Controls:Tile>
+					<Controls:Tile Title="喜马拉雅新词争取活动"
+					   MControls:TilePanel.WidthPix="4">
+						热门活动
+					</Controls:Tile>
+					<Controls:Tile Title="父亲，愿时光别再让你老"
+					   MControls:TilePanel.WidthPix="4">
+						专题
+					</Controls:Tile>
+				</MControls:TilePanel>
 			</GroupBox>
 			<!--推荐专辑-->
 			<GroupBox Header="推荐专辑"
                       Style="{StaticResource MyMetroGroupBox}"
-                      Grid.Column="3" >
+                      Grid.Column="4" >
 				<ListBox Background="Transparent"
                          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                          ItemContainerStyle="{StaticResource MetroAlbumListStyle}" 
@@ -101,6 +131,7 @@
 				</ListBox>
 			</GroupBox>
 			<!--热门声音-->
+			<!--
 			<ListBox Grid.Column="4" 
                      Background="Transparent"
                      ItemContainerStyle="{StaticResource MetroHotSoundsStyle}"
@@ -110,8 +141,8 @@
 						<WrapPanel Orientation="Horizontal"/>
 					</ItemsPanelTemplate>
 				</ListBox.ItemsPanel>
-			</ListBox>
+			</ListBox>-->
 		</Grid>
 	</ScrollViewer>
-	
+
 </UserControl>

@@ -101,7 +101,7 @@ namespace XIMALAYA.PCDesktop.Controls
         /// <param name="value"></param>
         public static void SetHeightPix(DependencyObject obj, int value)
         {
-            if (value > 0 )
+            if (value > 0)
             {
                 obj.SetValue(HeightPixProperty, value);
             }
@@ -163,7 +163,7 @@ namespace XIMALAYA.PCDesktop.Controls
 
         #region 方法
 
-        private Dictionary<string, bool> Maps { get; set; }
+        private Dictionary<string, Point> Maps { get; set; }
         private OccupyType SetMaps(Point currentPosition, Size childPix)
         {
             var isOccupy = OccupyType.NONE;
@@ -186,7 +186,7 @@ namespace XIMALAYA.PCDesktop.Controls
                 {
                     for (int j = 0; j < childPix.Height; j++)
                     {
-                        this.Maps[string.Format("x_{0}y_{1}", currentPosition.X + i, currentPosition.Y + j)] = true;
+                        this.Maps[string.Format("x_{0}y_{1}", currentPosition.X + i, currentPosition.Y + j)] = new Point(currentPosition.X + i, currentPosition.Y + j);
                     }
                 }
             }
@@ -242,13 +242,13 @@ namespace XIMALAYA.PCDesktop.Controls
             OccupyType isOccupy = OccupyType.NONE;
             FrameworkElement child;
 
-            this.Maps = new Dictionary<string, bool>();
+            this.Maps = new Dictionary<string, Point>();
             for (int i = 0; i < this.Children.Count; )
             {
                 child = this.Children[i] as FrameworkElement;
                 childPix.Width = TilePanel.GetWidthPix(child);
                 childPix.Height = TilePanel.GetHeightPix(child);
-                
+
                 if (this.Orientation == System.Windows.Controls.Orientation.Vertical)
                 {
                     if (childPix.Height > this.TileCount)
@@ -284,19 +284,21 @@ namespace XIMALAYA.PCDesktop.Controls
                     if (this.Orientation == System.Windows.Controls.Orientation.Horizontal)
                     {
                         childPosition.X = 0;
-                        childPosition.Y += this.MinHeightPix;
+                        childPosition.Y += this.Maps[string.Format("x_{0}y_{1}", childPosition.X, childPosition.Y)].Y;
+                        //childPosition.Y++;//= this.MinHeightPix;
                     }
                     else
                     {
                         childPosition.Y = 0;
-                        childPosition.X += this.MinWidthPix;
+                        childPosition.X += this.Maps[string.Format("x_{0}y_{1}", childPosition.X, childPosition.Y)].X;
+                        //childPosition.X++;//= this.MinWidthPix;
                     }
                 }
                 else
                 {
                     i++;
-                    child.Arrange(new Rect(childPosition.X * this.TileWidth + childPosition.X / this.MinWidthPix * (this.TileMargin.Left + this.TileMargin.Right),
-                                           childPosition.Y * this.TileHeight + childPosition.Y / this.MinHeightPix * (this.TileMargin.Top + this.TileMargin.Bottom),
+                    child.Arrange(new Rect(childPosition.X * this.TileWidth + Math.Floor(childPosition.X / this.MinWidthPix) * (this.TileMargin.Left + this.TileMargin.Right),
+                                           childPosition.Y * this.TileHeight + Math.Floor(childPosition.Y / this.MinHeightPix) * (this.TileMargin.Top + this.TileMargin.Bottom),
                                            child.DesiredSize.Width, child.DesiredSize.Height));
                     if (lastChildPosition != null)
                     {
@@ -308,10 +310,20 @@ namespace XIMALAYA.PCDesktop.Controls
                         if (this.Orientation == System.Windows.Controls.Orientation.Horizontal)
                         {
                             childPosition.X += childPix.Width;
+                            if (childPosition.X == this.TileCount)
+                            {
+                                childPosition.X = 0;
+                                childPosition.Y += this.MinHeightPix;
+                            }
                         }
                         else
                         {
                             childPosition.Y += childPix.Height;
+                            if (childPosition.Y == this.TileCount)
+                            {
+                                childPosition.Y = 0;
+                                childPosition.X += this.MinWidthPix;
+                            }
                         }
                     }
                 }
