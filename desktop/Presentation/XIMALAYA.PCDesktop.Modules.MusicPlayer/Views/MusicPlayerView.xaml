@@ -5,16 +5,17 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
              xmlns:MControls="http://ximalaya.com/xaml/controls"
-             xmlns:tools="http://ximalaya.com/xaml/tools/converter"
+             xmlns:converter="http://ximalaya.com/xaml/tools/converter"
+			 xmlns:tools="http://ximalaya.com/xaml/tools"
              xmlns:sound="clr-namespace:WPFSoundVisualizationLib;assembly=WPFSoundVisualizationLib"
              mc:Ignorable="d" 
              d:DesignWidth="700">
 
 	<UserControl.Resources>
 		<ResourceDictionary>
-			<tools:TimeSpanToDoubleConverter x:Key="TimeSpanToDoubleConverter"/>
-			<tools:TimeSpanConverter x:Key="TimeSpanConverter"></tools:TimeSpanConverter>
-			<BooleanToVisibilityConverter x:Key="BoolToVisibility"></BooleanToVisibilityConverter>
+			<converter:TimeSpanToDoubleConverter x:Key="TimeSpanToDoubleConverter"/>
+			<converter:TimeSpanConverter x:Key="TimeSpanConverter"/>
+			<BooleanToVisibilityConverter x:Key="BoolToVisibility"/>
 		</ResourceDictionary>
 	</UserControl.Resources>
 
@@ -179,7 +180,6 @@
 						   Height="32" 
 						   Source="{Binding SoundData.CoverSmall}"
 						   DefaultSource="person.jpg"/>
-
 		<!--声音信息-->
 		<Grid Grid.Row="1" Grid.Column="1">
 			<TextBlock TextWrapping="Wrap"
@@ -198,7 +198,6 @@
 						   Text="{Binding Duration,ElementName=metroSlider,Converter={StaticResource TimeSpanConverter},StringFormat='{} / {0}'}"/>
 			</StackPanel>
 		</Grid>
-
 		<!--进度条-->
 		<Grid Grid.ColumnSpan="4" 
 			  Grid.Row="0">
@@ -227,5 +226,4 @@
 		</Grid>
 
 	</Grid>
-
 </UserControl>

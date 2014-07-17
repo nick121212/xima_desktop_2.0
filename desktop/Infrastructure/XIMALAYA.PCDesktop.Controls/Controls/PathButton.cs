@@ -91,14 +91,18 @@ namespace XIMALAYA.PCDesktop.Controls
 
 
 
-
+        /// <summary>
+        /// 
+        /// </summary>
         public object  TextContent
         {
             get { return (object )GetValue(TextContentProperty); }
             set { SetValue(TextContentProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for TextContent.  This enables animation, styling, binding, etc...
+       /// <summary>
+       /// 
+       /// </summary>
         public static readonly DependencyProperty TextContentProperty =
             DependencyProperty.Register("TextContent", typeof(object ), typeof(PathButton), new PropertyMetadata(string.Empty));
 

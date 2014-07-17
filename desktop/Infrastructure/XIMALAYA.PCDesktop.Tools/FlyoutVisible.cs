@@ -9,7 +9,7 @@ namespace XIMALAYA.PCDesktop.Tools
     /// <summary>
     /// 全局flytou显示属性
     /// </summary>
-    public sealed class FlyoutVisibleBase : NotificationObject
+    public  class FlyoutVisibleBase : NotificationObject
     {
         #region fields
 
@@ -36,7 +36,7 @@ namespace XIMALAYA.PCDesktop.Tools
                     this.RaisePropertyChanged(() => this.IsSettingFlyoutShow);
                     if (this.EventAggregator == null)
                     {
-                        throw new Exception("EventAggregator null");
+                        return;
                     }
                     this.EventAggregator.GetEvent<ModulesManagerEvent>().Publish(new ModuleInfoArgument()
                     {
@@ -64,7 +64,7 @@ namespace XIMALAYA.PCDesktop.Tools
     /// <summary>
     /// 全局单例
     /// </summary>
-    public class FlyoutVisible : Singleton<FlyoutVisibleBase>
+    public sealed class FlyoutVisible : Singleton<FlyoutVisibleBase>
     {
 
     }

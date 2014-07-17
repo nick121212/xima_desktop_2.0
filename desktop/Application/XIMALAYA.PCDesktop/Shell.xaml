@@ -6,7 +6,7 @@
                       xmlns:cal="http://www.codeplex.com/prism"
                       xmlns:tools="http://ximalaya.com/xaml/tools"
                       xmlns:player="http://ximalaya.com/xaml/player"
-                      Style="{DynamicResource CleanWindowStyleKey}"
+                      Style="{DynamicResource CleanWindowStyle}"
                       GlowBrush="{DynamicResource AccentColorBrush}"
                       Title="{Binding WindowTitle}" 
                       MinHeight="700"
@@ -17,7 +17,9 @@
                       WindowStartupLocation="CenterScreen">
 	<!--Icon="icon_16.ico"-->
 	<Window.Resources>
+		<Style x:Key="CleanWindowStyle" TargetType="Controls:MetroWindow" BasedOn="{StaticResource CleanWindowStyleKey}" />
 		<BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+		<!--<Binding x:Key="IsSettingVisible" Path="IsSettingFlyoutShow" />-->
 	</Window.Resources>
 	<!--任务栏进度条-->
 	<Controls:MetroWindow.TaskbarItemInfo>
@@ -70,7 +72,7 @@
                              Position="Bottom"  
                              Theme="Adapt"
                              cal:RegionManager.RegionName="{x:Static tools:WellKnownRegionNames.SettingsModuleRegion}"  
-                             IsOpen="{Binding Source={x:Static tools:FlyoutVisible.Instance},Path=IsSettingFlyoutShow}"
+                             IsOpen="{Binding IsSettingFlyoutShow,Source={x:Static tools:FlyoutVisible.Instance}}"
                              AnimateOnPositionChange="True"/>
 		</Controls:FlyoutsControl>
 	</Controls:MetroWindow.Flyouts>
@@ -78,7 +80,7 @@
 	<Controls:MetroWindow.RightWindowCommands>
 		<Controls:WindowCommands>
 			<ToggleButton ToolTip="设置" 
-                          IsChecked="{Binding Source={x:Static tools:FlyoutVisible.Instance},Path=IsSettingFlyoutShow}">
+						  IsChecked="{Binding IsSettingFlyoutShow,Source={x:Static tools:FlyoutVisible.Instance}}">
 				<Path Data="{Binding ToolbarSettings, Source={x:Static MControls:PathData.Instance}}" 
                       Stretch="Uniform" Fill="{DynamicResource BlackColorBrush}" Width="16" Height="16" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
 					<Path.RenderTransform>
