@@ -3,6 +3,7 @@
 					xmlns:local="clr-namespace:XIMALAYA.PCDesktop.Controls">
 
 	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
 		<ResourceDictionary Source="pack://application:,,,/XIMALAYA.PCDesktop.Controls;component/Styles/Converter.xaml" />
 	</ResourceDictionary.MergedDictionaries>
 
@@ -58,6 +59,9 @@
 							<DoubleAnimation Duration="0:0:0.1" 
 											 Storyboard.TargetName="contentCheckedPresenter" 
 											 Storyboard.TargetProperty="Opacity" To="1"/>
+							<DoubleAnimation Duration="0"
+											 Storyboard.TargetName="PART_BackGround"
+											 Storyboard.TargetProperty="Opacity" To="1"/>
 						</Storyboard>
 					</VisualState>
 					<VisualState x:Name="Unchecked">
@@ -67,6 +71,9 @@
 											 Storyboard.TargetProperty="Opacity" To="1"/>
 							<DoubleAnimation Duration="0:0:0.1" 
 											 Storyboard.TargetName="contentCheckedPresenter" 
+											 Storyboard.TargetProperty="Opacity" To="0"/>
+							<DoubleAnimation Duration="0"
+											 Storyboard.TargetName="PART_BackGround"
 											 Storyboard.TargetProperty="Opacity" To="0"/>
 						</Storyboard>
 					</VisualState>
@@ -79,11 +86,7 @@
 					<VisualState x:Name="Unfocused" />
 				</VisualStateGroup>
 			</VisualStateManager.VisualStateGroups>
-
-			<Rectangle RadiusX="{TemplateBinding RadiusSize}"
-					   RadiusY="{TemplateBinding RadiusSize}"
-					   Fill="{TemplateBinding BackgroundChecked}"/>
-
+			<!--边框和背景色-->
 			<Border x:Name="PART_Border"
 					BorderBrush="{TemplateBinding BorderBrush}"
 				    BorderThickness="{TemplateBinding BorderThickness}"
@@ -107,38 +110,47 @@
 					</Rectangle.RenderTransform>
 				</Rectangle>
 			</Border>
-
+			<!--选中的背景色-->
+			<Rectangle x:Name="PART_BackGround" 
+					   Visibility="{TemplateBinding IsBackground}"
+					   Margin="{TemplateBinding BorderThickness}"
+					   RadiusX="{TemplateBinding RadiusSize}"
+					   RadiusY="{TemplateBinding RadiusSize}"
+					   Opacity="0"
+					   Fill="{TemplateBinding Background}"/>
+			<!--未选中内容-->
 			<Label x:Name="contentPresenter"
 				   Margin="0"
 				   Padding="0"
 				   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
 				   Foreground="{TemplateBinding ForegroundChecked}">
-				<ContentPresenter Content="{TemplateBinding Content}"
-                                  ContentTemplate="{TemplateBinding ContentTemplate}"
-                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                  Margin="{TemplateBinding Padding}"/>
+				<ContentPresenter 
+                              Content="{TemplateBinding Content}"
+                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              Margin="{TemplateBinding Padding}"/>
 			</Label>
+			<!--选中内容-->
 			<Label x:Name="contentCheckedPresenter"
 				   Margin="0"
 				   Padding="0"
 				   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
 				   Foreground="{TemplateBinding ForegroundChecked}">
-				<ContentPresenter Content="{TemplateBinding ContentChecked}"
-                                  ContentTemplate="{TemplateBinding ContentTemplate}"
-                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                  Margin="{TemplateBinding Padding}"/>
+				<ContentPresenter 
+                              Content="{TemplateBinding ContentChecked}"
+                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              Margin="{TemplateBinding Padding}"/>
 			</Label>
 		</Grid>
 	</ControlTemplate>
+
 	<Style TargetType="local:MyToggleButton">
 		<Setter Property="Template" Value="{StaticResource MyToggleButtonTemplate}"/>
-		<Setter Property="Margin" Value="0"/>
-		<Setter Property="Padding" Value="0"/>
-		<Setter Property="BorderThickness" Value="1"/>
 		<Style.Triggers>
 			<Trigger Property="IsMouseOver" Value="True">
 				<Setter Property="ForegroundChecked" Value="{Binding Foreground,RelativeSource={RelativeSource Self}}"/>
@@ -146,6 +158,13 @@
 			<Trigger Property="IsMouseOver" Value="False">
 				<Setter Property="ForegroundChecked" Value="{Binding Background,RelativeSource={RelativeSource Self}}"/>
 			</Trigger>
+			<MultiDataTrigger>
+				<MultiDataTrigger.Conditions>
+					<Condition Binding="{Binding IsChecked,RelativeSource={RelativeSource Self}}" Value="True"/>
+					<Condition Binding="{Binding IsBackground,RelativeSource={RelativeSource Self}}" Value="Visible"/>
+				</MultiDataTrigger.Conditions>
+				<Setter Property="ForegroundChecked" Value="{Binding Foreground,RelativeSource={RelativeSource Self}}"/>
+			</MultiDataTrigger>
 		</Style.Triggers>
 	</Style>
 

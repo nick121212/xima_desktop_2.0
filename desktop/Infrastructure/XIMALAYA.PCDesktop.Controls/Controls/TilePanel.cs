@@ -170,7 +170,7 @@ namespace XIMALAYA.PCDesktop.Controls
 
             if (currentPosition.X + currentPosition.Y != 0)
             {
-                if (this.Orientation == System.Windows.Controls.Orientation.Horizontal)
+                if (this.Orientation == Orientation.Horizontal)
                 {
                     isOccupy = this.IsOccupyWidth(currentPosition, childPix);
                 }
@@ -186,7 +186,7 @@ namespace XIMALAYA.PCDesktop.Controls
                 {
                     for (int j = 0; j < childPix.Height; j++)
                     {
-                        this.Maps[string.Format("x_{0}y_{1}", currentPosition.X + i, currentPosition.Y + j)] = new Point(currentPosition.X + i, currentPosition.Y + j);
+                        this.Maps[string.Format("x_{0}y_{1}", currentPosition.X + i, currentPosition.Y + j)] = new Point(childPix.Width - i, childPix.Height - j);
                     }
                 }
             }
@@ -249,7 +249,7 @@ namespace XIMALAYA.PCDesktop.Controls
                 childPix.Width = TilePanel.GetWidthPix(child);
                 childPix.Height = TilePanel.GetHeightPix(child);
 
-                if (this.Orientation == System.Windows.Controls.Orientation.Vertical)
+                if (this.Orientation == Orientation.Vertical)
                 {
                     if (childPix.Height > this.TileCount)
                     {
@@ -268,30 +268,30 @@ namespace XIMALAYA.PCDesktop.Controls
                 if (isOccupy == OccupyType.WIDTHHEIGHT)
                 {
                     if (lastChildPosition == null) lastChildPosition = childPosition;
-                    if (this.Orientation == System.Windows.Controls.Orientation.Horizontal)
+                    if (this.Orientation == Orientation.Horizontal)
                     {
-                        childPosition.X += this.MinWidthPix;
+                        childPosition.X += this.Maps[string.Format("x_{0}y_{1}", childPosition.X, childPosition.Y)].X;
                     }
                     else
                     {
-                        childPosition.Y += this.MinHeightPix;
+                        childPosition.Y += this.Maps[string.Format("x_{0}y_{1}", childPosition.X, childPosition.Y)].Y;
                     }
                 }
                 //换行
                 else if (isOccupy == OccupyType.OVERFLOW)
                 {
                     if (lastChildPosition == null) lastChildPosition = childPosition;
-                    if (this.Orientation == System.Windows.Controls.Orientation.Horizontal)
+                    if (this.Orientation == Orientation.Horizontal)
                     {
                         childPosition.X = 0;
-                        childPosition.Y += this.Maps[string.Format("x_{0}y_{1}", childPosition.X, childPosition.Y)].Y;
-                        //childPosition.Y++;//= this.MinHeightPix;
+                        //childPosition.Y += this.Maps[string.Format("x_{0}y_{1}", childPosition.X, childPosition.Y)].Y;
+                        childPosition.Y++;//= this.MinHeightPix;
                     }
                     else
                     {
                         childPosition.Y = 0;
-                        childPosition.X += this.Maps[string.Format("x_{0}y_{1}", childPosition.X, childPosition.Y)].X;
-                        //childPosition.X++;//= this.MinWidthPix;
+                        //childPosition.X += this.Maps[string.Format("x_{0}y_{1}", childPosition.X, childPosition.Y)].X;
+                        childPosition.X++;//= this.MinWidthPix;
                     }
                 }
                 else
@@ -307,13 +307,14 @@ namespace XIMALAYA.PCDesktop.Controls
                     }
                     else
                     {
-                        if (this.Orientation == System.Windows.Controls.Orientation.Horizontal)
+                        if (this.Orientation == Orientation.Horizontal)
                         {
                             childPosition.X += childPix.Width;
                             if (childPosition.X == this.TileCount)
                             {
                                 childPosition.X = 0;
-                                childPosition.Y += this.MinHeightPix;
+                                childPosition.Y++;
+                                lastChildPosition = null;
                             }
                         }
                         else
@@ -322,7 +323,8 @@ namespace XIMALAYA.PCDesktop.Controls
                             if (childPosition.Y == this.TileCount)
                             {
                                 childPosition.Y = 0;
-                                childPosition.X += this.MinWidthPix;
+                                childPosition.X++;
+                                lastChildPosition = null;
                             }
                         }
                     }

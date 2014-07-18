@@ -15,6 +15,7 @@ using MahApps.Metro.Controls.Dialogs;
 using MahApps.Metro.Controls;
 using XIMALAYA.PCDesktop.Core.Models.Album;
 using XIMALAYA.PCDesktop.Cache;
+using XIMALAYA.PCDesktop.Controls;
 
 namespace XIMALAYA.PCDesktop.Modules.DiscoverPage
 {
@@ -110,6 +111,29 @@ namespace XIMALAYA.PCDesktop.Modules.DiscoverPage
         }
         private void GetCategoryListAction()
         {
+
+            //DiscoverViewModel.CategoryList.Add(new CategoryData { IsFirst = true, Name = "all", Title = "热门", Path = PathData.Instance.all });
+            //DiscoverViewModel.CategoryList.Add(new CategoryData { IsFirst = false, Name = "book", Title = "有声小说", Path = PathData.Instance.book });
+            //DiscoverViewModel.CategoryList.Add(new CategoryData { IsFirst = false, Name = "music", Title = "音乐", Path = PathData.Instance.music });
+            //DiscoverViewModel.CategoryList.Add(new CategoryData { IsFirst = false, Name = "entertainment", Title = "综艺娱乐", Path = PathData.Instance.entertainment });
+            //DiscoverViewModel.CategoryList.Add(new CategoryData { IsFirst = false, Name = "comic", Title = "相声评书", Path = PathData.Instance.comic });
+            //DiscoverViewModel.CategoryList.Add(new CategoryData { IsFirst = false, Name = "news", Title = "最新资讯", Path = PathData.Instance.news });
+            //DiscoverViewModel.CategoryList.Add(new CategoryData { IsFirst = false, Name = "emotion", Title = "情感生活", Path = PathData.Instance.emotion });
+            //DiscoverViewModel.CategoryList.Add(new CategoryData { IsFirst = false, Name = "culture", Title = "历史人文", Path = PathData.Instance.culture });
+            //DiscoverViewModel.CategoryList.Add(new CategoryData { IsFirst = false, Name = "train", Title = "外语", Path = PathData.Instance.train });
+            //DiscoverViewModel.CategoryList.Add(new CategoryData { IsFirst = false, Name = "baijia", Title = "百家讲坛", Path = PathData.Instance.baijia });
+            //DiscoverViewModel.CategoryList.Add(new CategoryData { IsFirst = false, Name = "chair", Title = "培训讲座", Path = PathData.Instance.chair });
+            //DiscoverViewModel.CategoryList.Add(new CategoryData { IsFirst = false, Name = "radioplay", Title = "广播剧", Path = PathData.Instance.radioplay });
+            //DiscoverViewModel.CategoryList.Add(new CategoryData { IsFirst = false, Name = "opera", Title = "戏剧", Path = PathData.Instance.opera });
+            //DiscoverViewModel.CategoryList.Add(new CategoryData { IsFirst = false, Name = "kid", Title = "儿童", Path = PathData.Instance.kid });
+            //DiscoverViewModel.CategoryList.Add(new CategoryData { IsFirst = false, Name = "radio", Title = "电台", Path = PathData.Instance.radio });
+            //DiscoverViewModel.CategoryList.Add(new CategoryData { IsFirst = false, Name = "finance", Title = "商业财经", Path = PathData.Instance.finance });
+            //DiscoverViewModel.CategoryList.Add(new CategoryData { IsFirst = false, Name = "it", Title = "IT科技", Path = PathData.Instance.it });
+            //DiscoverViewModel.CategoryList.Add(new CategoryData { IsFirst = false, Name = "health", Title = "健康养生", Path = PathData.Instance.health });
+            //DiscoverViewModel.CategoryList.Add(new CategoryData { IsFirst = false, Name = "other", Title = "其他", Path = PathData.Instance.other });
+
+            //return;
+
             this.CategoryService.GetData(categories =>
             {
                 CategoryResult categoryResult = categories as CategoryResult;

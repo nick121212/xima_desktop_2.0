@@ -8,6 +8,8 @@
 	<ResourceDictionary.MergedDictionaries>
 		<ResourceDictionary Source="pack://application:,,,/XIMALAYA.PCDesktop.Controls;component/Styles/MyRadioButton.xaml" />
 		<ResourceDictionary Source="pack://application:,,,/XIMALAYA.PCDesktop.Controls;component/Styles/ListBoxItem.Common.xaml" />
+		<ResourceDictionary Source="pack://application:,,,/XIMALAYA.PCDesktop.Controls;component/Styles/Path.xaml" />
+		
 	</ResourceDictionary.MergedDictionaries>
 
 	<DataTemplate x:Key="MetroCategoryItemTemplate" DataType="{x:Type ListBoxItem}">
@@ -29,6 +31,13 @@
 						<RowDefinition Height="Auto"/>
 					</Grid.RowDefinitions>
 
+					<Path Data="{Binding Path}" 
+						  Style="{StaticResource PathStyle}"
+						  Width="40"
+						  Height="40"
+						  Fill="{DynamicResource AccentColorBrush}" >
+					</Path>
+					
 					<Image Width="60" 
 						   Height="60" 
 						   Stretch="Uniform" 
@@ -38,6 +47,7 @@
 							<EllipseGeometry Center="30,30" RadiusX="25" RadiusY="25"/>
 						</Image.Clip>
 					</Image>
+					
 					<Label Grid.Row="1" 
 						   HorizontalContentAlignment="Center" 
 						   Content="{Binding Title}"/>

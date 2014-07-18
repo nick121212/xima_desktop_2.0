@@ -146,6 +146,12 @@
     <Resource Include="Resources\Images\defaults\person_186.png" />
     <Resource Include="Resources\Images\ICO\Pause.ico" />
     <Resource Include="Resources\Images\ICO\Play.ico" />
+    <Resource Include="Resources\Images\discover\bzbanner.png" />
+    <Resource Include="Resources\Images\discover\phbbanner.png" />
+    <Resource Include="Resources\Images\discover\bzbanner%402x.png" />
+    <Resource Include="Resources\Images\discover\phbbanner%402x.png" />
+    <Resource Include="Resources\Images\discover\lrdticon%402x.png" />
+    <Resource Include="Resources\Images\discover\arrow%402x.png" />
     <Content Include="Resources\System\toolbar_next_n%402x.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

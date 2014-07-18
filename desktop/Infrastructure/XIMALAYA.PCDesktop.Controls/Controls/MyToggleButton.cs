@@ -133,6 +133,21 @@ namespace XIMALAYA.PCDesktop.Controls
         public static readonly DependencyProperty ContentCheckedProperty =
             DependencyProperty.Register("ContentChecked", typeof(object), typeof(MyToggleButton), new PropertyMetadata(null));
 
+
+        /// <summary>
+        /// 背景色控制选项
+        /// </summary>
+        public Visibility IsBackground
+        {
+            get { return (Visibility)GetValue(IsBackgroundProperty); }
+            set { SetValue(IsBackgroundProperty, value); }
+        }
+        /// <summary>
+        /// 背景色控制选项
+        /// </summary>
+        public static readonly DependencyProperty IsBackgroundProperty =
+            DependencyProperty.Register("IsBackground", typeof(Visibility), typeof(MyToggleButton), new PropertyMetadata(Visibility.Hidden));
+
         private static void OnBorderTypeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var myToggleButton = d as MyToggleButton;
@@ -176,7 +191,7 @@ namespace XIMALAYA.PCDesktop.Controls
             this.ColorAnimation = GetTemplateChild("Part_ColorAnimation") as ColorAnimation;
             this.ColorCheckedAnimation = GetTemplateChild("Part_ColorCheckAnimation") as ColorAnimation;
 
-            if (this.ForegroundChecked == null ||  this.ForegroundChecked.GetType() != typeof( SolidColorBrush) || ((SolidColorBrush)this.ForegroundChecked).Color==null)
+            if (this.ForegroundChecked == null || this.ForegroundChecked.GetType() != typeof(SolidColorBrush) || ((SolidColorBrush)this.ForegroundChecked).Color == null)
             {
                 return;
             }

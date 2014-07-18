@@ -112,7 +112,7 @@
                 Height="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=WrapPanel}, Path=ActualHeight}" 
                 cal:RegionManager.RegionName="{x:Static tools:WellKnownRegionNames.MenusRegion}"/>
 		</WrapPanel>
-		<Grid Background="{DynamicResource WhiteColorBrush}">
+		<Grid>
 			<ContentControl Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Grid}, Path=ActualWidth}" 
                             Height="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Grid}, Path=ActualHeight}" 
                             cal:RegionManager.RegionName="{x:Static tools:WellKnownRegionNames.DiscoverModuleRegion}" />

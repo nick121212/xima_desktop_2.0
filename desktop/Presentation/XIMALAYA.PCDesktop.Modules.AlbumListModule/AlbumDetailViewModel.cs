@@ -97,7 +97,7 @@ namespace XIMALAYA.PCDesktop.Modules.AlbumListModule
             }
             if (isClear)
             {
-                this.AlbumData = null;
+                this.Sounds.Clear();
             }
 
             this.Params.Page = this.CurrentPage;
@@ -112,7 +112,11 @@ namespace XIMALAYA.PCDesktop.Modules.AlbumListModule
 
                     if (albumInfo.Ret == 0)
                     {
-                        this.AlbumData = albumInfo.Album;
+                        if (this.AlbumData == null)
+                        {
+                            this.AlbumData = albumInfo.Album;
+                        }
+                        this.Total = albumInfo.SoundsResult.TotalCount;
                         SoundCache.Instance.SetData(albumInfo.SoundsResult.Sounds);
                         foreach (SoundData sound in albumInfo.SoundsResult.Sounds)
                         {
@@ -143,9 +147,9 @@ namespace XIMALAYA.PCDesktop.Modules.AlbumListModule
                     Page = 1,
                     PerPage = 20
                 };
-                this.GetData(true);
                 this.PageSize = (int)this.Params.PerPage;
                 this.CurrentPage = 1;
+                //this.GetData(true);
             }
         }
 

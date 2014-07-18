@@ -139,14 +139,6 @@ namespace XIMALAYA.PCDesktop.Modules.AlbumListModule
             this.StatusList = new List<string>() { "全部", "完结", "连载" };
         }
         /// <summary>
-        /// 下一页事件之前准备
-        /// </summary>
-        protected override void PreNextData()
-        {
-            this.Params.Page += 1;
-        }
-
-        /// <summary>
         /// 
         /// </summary>
         /// <param name="isClear"></param>
@@ -157,7 +149,6 @@ namespace XIMALAYA.PCDesktop.Modules.AlbumListModule
                 if (isClear)
                 {
                     this.Albums.Clear();
-                    //this.CurrentPage = 1;
                 }
 
                 this.Params.Page = this.CurrentPage;

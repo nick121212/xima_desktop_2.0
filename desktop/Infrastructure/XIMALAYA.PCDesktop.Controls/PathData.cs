@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
+using XIMALAYA.PCDesktop.Controls.Properties;
 using XIMALAYA.PCDesktop.Tools;
 
 namespace XIMALAYA.PCDesktop.Controls
@@ -122,6 +124,169 @@ namespace XIMALAYA.PCDesktop.Controls
             get
             {
                 return Geometry.Parse("F1M5,24C4.667,25.666 4.333,27.333 4,29 8.498,29.968 8.212,30.671 10,26 9.333,25.333 8.667,24.667 8,24 7,24 6,24 5,24z M5,14C5,15.333 5,16.667 5,18 11.701,19.633 14.676,21.887 16,29 17.333,29 18.667,29 20,29 20,27.667 20,26.333 20,25 17.886,20.582 16.52,18.112 12,16 9.667,15.333 7.333,14.667 5,14z M5,5C5,6.333 5,7.667 5,9 17.003,9.895 24.49,16.561 25,29 26.333,29 27.667,29 29,29 29,27.333 29,25.666 29,24 24.952,13.269 19.034,5.745 5,5z M19.207,-0.343C25.05,-0.221 30.492,0.348 34,2 34.275,12.234 35.305,26.984 32,34 21.766,34.275 7.016,35.305 0,32 -0.275,21.766 -1.305,7.016 2,0 7.117,-0.138 13.363,-0.464 19.207,-0.343z");
+            }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public string this[string name]
+        {
+            get
+            {
+                return Resources.ResourceManager.GetString(name);
+            }
+        }
+
+
+        public Geometry all
+        {
+            get
+            {
+                return Geometry.Parse(Resources.all);
+            }
+        }
+
+        public Geometry baijia
+        {
+            get
+            {
+                return Geometry.Parse(Resources.baijia);
+            }
+        }
+
+        public Geometry book
+        {
+            get
+            {
+                return Geometry.Parse(Resources.book);
+            }
+        }
+
+        public Geometry chair
+        {
+            get
+            {
+                return Geometry.Parse(Resources.chair);
+            }
+        }
+
+        public Geometry comic
+        {
+            get
+            {
+                return Geometry.Parse(Resources.comic);
+            }
+        }
+
+        public Geometry culture
+        {
+            get
+            {
+                return Geometry.Parse(Resources.culture);
+            }
+        }
+
+        public Geometry emotion
+        {
+            get
+            {
+                return Geometry.Parse(Resources.emotion);
+            }
+        }
+
+        public Geometry entertainment
+        {
+            get
+            {
+                return Geometry.Parse(Resources.entertainment);
+            }
+        }
+
+        public Geometry finance
+        {
+            get
+            {
+                return Geometry.Parse(Resources.finance);
+            }
+        }
+
+        public Geometry health
+        {
+            get
+            {
+                return Geometry.Parse(Resources.health);
+            }
+        }
+
+        public Geometry it
+        {
+            get
+            {
+                return Geometry.Parse(Resources.it);
+            }
+        }
+
+        public Geometry kid
+        {
+            get
+            {
+                return Geometry.Parse(Resources.kid);
+            }
+        }
+
+        public Geometry music
+        {
+            get
+            {
+                return Geometry.Parse(Resources.music);
+            }
+        }
+
+        public Geometry news
+        {
+            get
+            {
+                return Geometry.Parse(Resources.news);
+            }
+        }
+
+
+        public Geometry opera
+        {
+            get
+            {
+                return Geometry.Parse(Resources.opera);
+            }
+        }
+        public Geometry other
+        {
+            get
+            {
+                return Geometry.Parse(Resources.other);
+            }
+        }
+        public Geometry radio
+        {
+            get
+            {
+                return Geometry.Parse(Resources.radio);
+            }
+        }
+        public Geometry radioplay
+        {
+            get
+            {
+                return Geometry.Parse(Resources.radioplay);
+            }
+        }
+
+        public Geometry train
+        {
+            get
+            {
+                return Geometry.Parse(Resources.train);
             }
         }
 

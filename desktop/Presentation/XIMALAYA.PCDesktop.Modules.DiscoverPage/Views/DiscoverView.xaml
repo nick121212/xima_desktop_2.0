@@ -36,9 +36,9 @@
                          ItemsSource="{Binding FocusImageList}">
 					<ListBox.ItemsPanel>
 						<ItemsPanelTemplate>
-							<MControls:TilePanel TileHeight="5" 
-                                                 TileWidth="5" 
-                                                 TileCount="198"
+							<MControls:TilePanel TileHeight="30" 
+                                                 TileWidth="30" 
+                                                 TileCount="33"
                                                  TileMargin="2"/>
 						</ItemsPanelTemplate>
 					</ListBox.ItemsPanel>
@@ -47,6 +47,7 @@
 			<!--分类列表-->
 			<GroupBox Header=" "
                       Style="{StaticResource MyMetroGroupBox}"
+					  Margin="0"
                       Grid.Column="1">
 				<ListBox Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=GroupBox}, Path=Width}"
                          Height="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=GroupBox}, Path=Height}"
@@ -86,30 +87,112 @@
 			<GroupBox Header=""
                       Style="{StaticResource MyMetroGroupBox}"
                       Grid.Column="2" >
-				<MControls:TilePanel TileCount="4" 
-								     TileWidth="80" 
-									 TileMargin="2"
-								     TileHeight="88">
-					<Controls:Tile Title="喜马拉雅最佳播主"
-					   MControls:TilePanel.WidthPix="4">
-						最火播主
+				<MControls:TilePanel TileCount="2" 
+								     TileWidth="290" 
+									 TileMargin="3"
+								     TileHeight="10">
+					<!--最火播主-->
+					<Controls:Tile MControls:TilePanel.WidthPix="1"
+						           MControls:TilePanel.HeightPix="14">
+						<Controls:Tile.Content>
+							<Image Source="pack://application:,,,/XIMALAYA.PCDesktop.Tools;component/Resources/Images/discover/bzbanner@2x.png"/>
+						</Controls:Tile.Content>
 					</Controls:Tile>
-					<Controls:Tile Title="喜马拉雅最好声音"
-					   MControls:TilePanel.WidthPix="4">
-						排行榜
+					<!--排行榜-->
+					<Controls:Tile MControls:TilePanel.WidthPix="1"
+						           MControls:TilePanel.HeightPix="14">
+						<Controls:Tile.Content>
+							<Image Source="pack://application:,,,/XIMALAYA.PCDesktop.Tools;component/Resources/Images/discover/phbbanner@2x.png"/>
+						</Controls:Tile.Content>
 					</Controls:Tile>
-					<Controls:Tile Title="智能化个性电台，一键收听"
-					   MControls:TilePanel.WidthPix="4">
-						懒人电台
+					<!--懒人电台-->
+					<Controls:Tile MControls:TilePanel.WidthPix="2"
+								   MControls:TilePanel.HeightPix="10"
+								   Background="White">
+						<Grid Height="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Controls:Tile}, Path=ActualHeight}"
+							  Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Controls:Tile}, Path=ActualWidth}">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="Auto"/>
+								<ColumnDefinition Width="*"/>
+								<ColumnDefinition Width="Auto"/>
+								<ColumnDefinition Width="Auto"/>
+							</Grid.ColumnDefinitions>
+
+							<Image Grid.Column="0" 
+								   Margin="20" 
+								   Width="60" 
+								   Height="60" 
+								   Source="pack://application:,,,/XIMALAYA.PCDesktop.Tools;component/Resources/Images/discover/lrdticon@2x.png" />
+							<StackPanel Grid.Column="1">
+								<Label VerticalAlignment="Top" VerticalContentAlignment="Top" Padding="0" FontSize="25" Margin="0 20 0 5" Content="懒人电台"/>
+								<Label VerticalAlignment="Top" VerticalContentAlignment="Top" Padding="0" FontSize="15" Margin="0"  Content="智能化个性电台，一键收听"/>
+							</StackPanel>
+
+							<Image Grid.Column="2" 
+								   Stretch="None"
+								   Margin="25 0 20 0" 
+								   Source="pack://application:,,,/XIMALAYA.PCDesktop.Tools;component/Resources/Images/discover/arrow@2x.png" />
+						</Grid>
 					</Controls:Tile>
-					<Controls:Tile Title="喜马拉雅新词争取活动"
-					   MControls:TilePanel.WidthPix="4">
-						热门活动
+					<!--专题-->
+					<Controls:Tile MControls:TilePanel.WidthPix="2"
+								   MControls:TilePanel.HeightPix="10"
+								   Background="White">
+						<Grid Height="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Controls:Tile}, Path=ActualHeight}"
+							  Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Controls:Tile}, Path=ActualWidth}">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="Auto"/>
+								<ColumnDefinition Width="*"/>
+								<ColumnDefinition Width="Auto"/>
+								<ColumnDefinition Width="Auto"/>
+							</Grid.ColumnDefinitions>
+
+							<Image Grid.Column="0" 
+								   Margin="20" 
+								   Width="60" 
+								   Height="60" 
+								   Source="pack://application:,,,/XIMALAYA.PCDesktop.Tools;component/Resources/Images/discover/lrdticon@2x.png" />
+							<StackPanel Grid.Column="1">
+								<Label VerticalAlignment="Top" VerticalContentAlignment="Top" Padding="0" FontSize="25" Margin="0 20 0 5" Content="专题"/>
+								<Label VerticalAlignment="Top" VerticalContentAlignment="Top" Padding="0" FontSize="15" Margin="0"  Content="父亲，愿时光别再让你变老"/>
+							</StackPanel>
+
+							<Image Grid.Column="2" 
+								   Stretch="None"
+								   Margin="25 0 20 0" 
+								   Source="pack://application:,,,/XIMALAYA.PCDesktop.Tools;component/Resources/Images/discover/arrow@2x.png" />
+						</Grid>
 					</Controls:Tile>
-					<Controls:Tile Title="父亲，愿时光别再让你老"
-					   MControls:TilePanel.WidthPix="4">
-						专题
+					<!--热门活动-->
+					<Controls:Tile MControls:TilePanel.WidthPix="2"
+								   MControls:TilePanel.HeightPix="10"
+								   Background="White">
+						<Grid Height="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Controls:Tile}, Path=ActualHeight}"
+							  Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Controls:Tile}, Path=ActualWidth}">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="Auto"/>
+								<ColumnDefinition Width="*"/>
+								<ColumnDefinition Width="Auto"/>
+								<ColumnDefinition Width="Auto"/>
+							</Grid.ColumnDefinitions>
+
+							<Image Grid.Column="0" 
+								   Margin="20" 
+								   Width="60" 
+								   Height="60" 
+								   Source="pack://application:,,,/XIMALAYA.PCDesktop.Tools;component/Resources/Images/discover/lrdticon@2x.png" />
+							<StackPanel Grid.Column="1">
+								<Label VerticalAlignment="Top" VerticalContentAlignment="Top" Padding="0" FontSize="25" Margin="0 20 0 5" Content="热门活动"/>
+								<Label VerticalAlignment="Top" VerticalContentAlignment="Top" Padding="0" FontSize="15" Margin="0"  Content="喜马拉雅新词征取活动"/>
+							</StackPanel>
+
+							<Image Grid.Column="2" 
+								   Stretch="None"
+								   Margin="25 0 20 0" 
+								   Source="pack://application:,,,/XIMALAYA.PCDesktop.Tools;component/Resources/Images/discover/arrow@2x.png" />
+						</Grid>
 					</Controls:Tile>
+
 				</MControls:TilePanel>
 			</GroupBox>
 			<!--推荐专辑-->
