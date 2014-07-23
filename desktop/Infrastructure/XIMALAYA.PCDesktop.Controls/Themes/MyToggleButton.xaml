@@ -94,9 +94,9 @@
 					CornerRadius="{TemplateBinding CornerRadius}"
 					Opacity="1">
 				<Rectangle x:Name="PART_Fill" 
-					   RadiusX="{TemplateBinding RadiusSize}"
-					   RadiusY="{TemplateBinding RadiusSize}"
-					   Fill="{TemplateBinding Background}">
+					       RadiusX="{TemplateBinding RadiusSize}"
+					       RadiusY="{TemplateBinding RadiusSize}"
+					       Fill="{TemplateBinding Background}">
 					<Rectangle.RenderTransform>
 						<TransformGroup>
 							<TransformGroup.Children>

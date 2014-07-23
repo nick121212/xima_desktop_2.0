@@ -27,17 +27,23 @@
                          Description="Taskbar Items Sample">
 			<TaskbarItemInfo.ThumbButtonInfos>
 				<ThumbButtonInfoCollection>
-					<ThumbButtonInfo x:Name="playCommand"
-                                     DismissWhenClicked="True"
+					<ThumbButtonInfo DismissWhenClicked="True"
+									 ImageSource="prev.ico"
+                                     Command="{Binding PrevCommand,Source={x:Static tools:CommandSingleton.Instance}}">
+					</ThumbButtonInfo>
+					<ThumbButtonInfo DismissWhenClicked="True"
 									 ImageSource="Play.ico"
 									 Visibility="{Binding BassEngine.CanPlay,Converter={StaticResource BooleanToVisibilityConverter}}"
                                      Command="{Binding BassEngine.PlayCommand}">
 					</ThumbButtonInfo>
-					<ThumbButtonInfo x:Name="pauseCommand"
-                                     DismissWhenClicked="True"
+					<ThumbButtonInfo DismissWhenClicked="True"
 									 ImageSource="Pause.ico"
 									 Visibility="{Binding BassEngine.CanPause,Converter={StaticResource BooleanToVisibilityConverter}}"
                                      Command="{Binding BassEngine.PlayCommand}">
+					</ThumbButtonInfo>
+					<ThumbButtonInfo DismissWhenClicked="True"
+									 ImageSource="next.ico"
+                                     Command="{Binding NextCommand,Source={x:Static tools:CommandSingleton.Instance}}">
 					</ThumbButtonInfo>
 				</ThumbButtonInfoCollection>
 			</TaskbarItemInfo.ThumbButtonInfos>

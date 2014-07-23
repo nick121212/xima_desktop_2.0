@@ -29,12 +29,6 @@ namespace XIMALAYA.PCDesktop.Modules.MusicPlayer
     [Export]
     public class MusicPlayerViewModel : BaseViewModel, IModule
     {
-        #region command
-
-        public ICommand ShowSpectrumAnalyzerCommand { get; set; }
-
-        #endregion
-
         #region 属性
 
         private SoundData _SoundData;
@@ -94,10 +88,12 @@ namespace XIMALAYA.PCDesktop.Modules.MusicPlayer
         public void Initialize()
         {
             this.BassEngine.CurrentSoundUrl = string.Empty;
+            this.BassEngine.PlayOverEvent += BassEngine_PlayOverEvent;
             this.EventAggregator.GetEvent<PlayerEvent>().Subscribe((TrackId) =>
             {
                 if (this.SoundData != null && this.SoundData.TrackId == TrackId)
                 {
+                    this.BassEngine.PlayCommand.Execute();
                     return;
                 }
                 SoundData soundData = SoundCache.Instance[TrackId];
@@ -108,6 +104,11 @@ namespace XIMALAYA.PCDesktop.Modules.MusicPlayer
                     this.BassEngine.OpenUrlAsync(this.SoundData.PlayUrl64);
                 }
             });
+        }
+
+        void BassEngine_PlayOverEvent(object sender, EventArgs e)
+        {
+            CommandSingleton.Instance.NextCommand.Execute();
         }
 
         #endregion

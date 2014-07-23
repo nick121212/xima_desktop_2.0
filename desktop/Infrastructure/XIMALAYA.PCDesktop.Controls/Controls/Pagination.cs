@@ -446,6 +446,7 @@ namespace XIMALAYA.PCDesktop.Controls
                 CommandParameter = pageNo,
                 IsBackground = System.Windows.Visibility.Visible,
                 IsChecked = pageNo == this.CurrentPage,
+                IsEnabled = pageNo != this.CurrentPage,
                 Padding = new Thickness(),
                 Style = this.ButtonStyle
             };

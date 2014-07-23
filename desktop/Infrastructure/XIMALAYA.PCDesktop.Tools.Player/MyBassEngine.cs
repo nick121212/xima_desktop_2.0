@@ -36,6 +36,15 @@ namespace XIMALAYA.PCDesktop.Tools.Player
 
         #endregion
 
+        #region 事件
+
+        /// <summary>
+        /// 播放完成事件
+        /// </summary>
+        public event EventHandler PlayOverEvent;
+
+        #endregion
+
         #region 属性
 
         /// <summary>
@@ -623,6 +632,10 @@ namespace XIMALAYA.PCDesktop.Tools.Player
             {
                 this.Pause();
                 this.CurrentTime = TimeSpan.Zero;
+                if (this.PlayOverEvent != null)
+                {
+                    this.PlayOverEvent.BeginInvoke(this, new EventArgs(), null, null);
+                }
                 //this.Stop();
             }));
         }

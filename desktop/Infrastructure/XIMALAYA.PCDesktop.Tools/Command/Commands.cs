@@ -1,15 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
 using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Prism.ViewModel;
 using Microsoft.Practices.ServiceLocation;
+using XIMALAYA.PCDesktop.Core.Models.Sound;
 using XIMALAYA.PCDesktop.Events;
+using XIMALAYA.PCDesktop.Tools.Extension;
+using XIMALAYA.PCDesktop.Tools.Player;
 
 namespace XIMALAYA.PCDesktop.Tools
 {
@@ -49,6 +55,24 @@ namespace XIMALAYA.PCDesktop.Tools
                 }
             }
         }
+        /// <summary>
+        /// 全局播放
+        /// </summary>
+        public BassEngine BassEngine
+        {
+            get
+            {
+                return PlayerSingleton.Instance;
+            }
+        }
+        /// <summary>
+        /// 当前点击播放的声音行
+        /// </summary>
+        public Control CurrentPlayControl { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public ItemCollection SoundCollection { get; set; }
 
         #endregion
 
@@ -59,9 +83,21 @@ namespace XIMALAYA.PCDesktop.Tools
         /// </summary>
         public DelegateCommand<long?> PlaySoundCommand { get; set; }
         /// <summary>
+        /// 播放命令
+        /// </summary>
+        public DelegateCommand<Control> PlaySound1Command { get; set; }
+        /// <summary>
         /// 专辑详情页命令
         /// </summary>
         public DelegateCommand<long?> AlbumDetailCommand { get; set; }
+        /// <summary>
+        /// 上一首命令
+        /// </summary>
+        public DelegateCommand PrevCommand { get; set; }
+        /// <summary>
+        /// 下一首命令
+        /// </summary>
+        public DelegateCommand NextCommand { get; set; }
 
         #endregion
 
@@ -71,10 +107,53 @@ namespace XIMALAYA.PCDesktop.Tools
         {
             this.EventAggregator = ServiceLocator.Current.GetInstance<IEventAggregator>();
 
+            this.PlaySound1Command = new DelegateCommand<Control>(con =>
+            {
+                var soundData = con.DataContext as SoundData;
+
+                if (soundData == null) return;
+
+                var dataGrid = VisualTreeHelperExtensions.FindAncestor<DataGrid>(con);
+                this.SoundCollection = dataGrid.Items;
+                if (this.SoundCollection.MoveCurrentTo(soundData))
+                {
+                    this.PlaySoundCommand.Execute(((SoundData)this.SoundCollection.CurrentItem).TrackId);
+                }
+            });
+
+            this.PrevCommand = new DelegateCommand(() =>
+            {
+                if (this.SoundCollection == null) return;
+                if (this.SoundCollection.MoveCurrentToPrevious())
+                {
+                    this.PlaySoundCommand.Execute(((SoundData)this.SoundCollection.CurrentItem).TrackId);
+                }
+            }, () =>
+            {
+                if (this.SoundCollection == null) return false;
+
+                return this.SoundCollection.CurrentPosition > 0;
+            });
+            this.NextCommand = new DelegateCommand(() =>
+            {
+                if (this.SoundCollection == null) return;
+                if (this.SoundCollection.MoveCurrentToNext())
+                {
+                    this.PlaySoundCommand.Execute(((SoundData)this.SoundCollection.CurrentItem).TrackId);
+                }
+            }, () =>
+            {
+                if (this.SoundCollection == null) return false;
+
+                return this.SoundCollection.CurrentPosition < this.SoundCollection.Count - 1;
+            });
+
             this.PlaySoundCommand = new DelegateCommand<long?>(trackID =>
             {
                 if (trackID == null) return;
 
+                this.PrevCommand.RaiseCanExecuteChanged();
+                this.NextCommand.RaiseCanExecuteChanged();
                 this.EventAggregator.GetEvent<ModulesManagerEvent>().Publish(new ModuleInfoArgument()
                 {
                     ModuleName = WellKnownModuleNames.MusicPlayerModule,
@@ -85,7 +164,7 @@ namespace XIMALAYA.PCDesktop.Tools
                 });
             }, (trackID) =>
             {
-                return trackID != this.TrackID;
+                return true;
             });
 
             this.AlbumDetailCommand = new DelegateCommand<long?>(albumID =>

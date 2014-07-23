@@ -55,6 +55,19 @@ namespace XIMALAYA.PCDesktop.Controls
         public static readonly DependencyProperty BorderTypeProperty =
             DependencyProperty.Register("BorderType", typeof(BorderType), typeof(MyToggleButton), new PropertyMetadata(BorderType.None, OnBorderTypeChanged));
         /// <summary>
+        /// 是否自动设置圆角数值
+        /// </summary>
+        public bool IsAutoCornerRadius
+        {
+            get { return (bool)GetValue(IsAutoCornerRadiusProperty); }
+            set { SetValue(IsAutoCornerRadiusProperty, value); }
+        }
+        /// <summary>
+        /// 是否自动设置圆角数值
+        /// </summary>
+        public static readonly DependencyProperty IsAutoCornerRadiusProperty =
+            DependencyProperty.Register("IsAutoCornerRadius", typeof(bool), typeof(MyToggleButton), new PropertyMetadata(true, OnBorderTypeChanged));
+        /// <summary>
         /// 边框圆角
         /// </summary>
         public CornerRadius CornerRadius
@@ -132,8 +145,6 @@ namespace XIMALAYA.PCDesktop.Controls
         /// </summary>
         public static readonly DependencyProperty ContentCheckedProperty =
             DependencyProperty.Register("ContentChecked", typeof(object), typeof(MyToggleButton), new PropertyMetadata(null));
-
-
         /// <summary>
         /// 背景色控制选项
         /// </summary>
@@ -147,20 +158,36 @@ namespace XIMALAYA.PCDesktop.Controls
         /// </summary>
         public static readonly DependencyProperty IsBackgroundProperty =
             DependencyProperty.Register("IsBackground", typeof(Visibility), typeof(MyToggleButton), new PropertyMetadata(Visibility.Hidden));
+        /// <summary>
+        /// 是否为单选
+        /// </summary>
+        public bool IsSingle
+        {
+            get { return (bool)GetValue(IsSingleProperty); }
+            set { SetValue(IsSingleProperty, value); }
+        }
+        /// <summary>
+        /// 是否为单选
+        /// </summary>
+        public static readonly DependencyProperty IsSingleProperty =
+            DependencyProperty.Register("IsSingle", typeof(bool), typeof(MyToggleButton), new PropertyMetadata(false));
 
         private static void OnBorderTypeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var myToggleButton = d as MyToggleButton;
 
-            switch ((BorderType)e.NewValue)
+            switch (myToggleButton.BorderType)
             {
                 case BorderType.None:
                     myToggleButton.IsShowBorder = false;
                     break;
                 case BorderType.Ellipse:
                     myToggleButton.IsShowBorder = true;
-                    myToggleButton.CornerRadius = new CornerRadius(myToggleButton.Width / 2);
-                    myToggleButton.RadiusSize = myToggleButton.Width / 2;
+                    if (myToggleButton.IsAutoCornerRadius)
+                    {
+                        myToggleButton.CornerRadius = new CornerRadius(myToggleButton.Width / 2);
+                        myToggleButton.RadiusSize = myToggleButton.Width / 2;
+                    }
                     break;
                 case BorderType.Rectangle:
                     myToggleButton.IsShowBorder = true;
@@ -173,11 +200,24 @@ namespace XIMALAYA.PCDesktop.Controls
         private Border Border { get; set; }
         private Rectangle Rectangle { get; set; }
         private ScaleTransform ScaleTransform { get; set; }
-
         private ColorAnimation ColorAnimation { get; set; }
-
         private ColorAnimation ColorCheckedAnimation { get; set; }
 
+        /// <summary>
+        /// 构造
+        /// </summary>
+        public MyToggleButton()
+            : base()
+        {
+            
+        }
+        protected override void OnToggle()
+        {
+            if (!this.IsSingle)
+            {
+                base.OnToggle();
+            }
+        }
         /// <summary>
         /// 应用模板
         /// </summary>
