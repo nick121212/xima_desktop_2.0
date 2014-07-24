@@ -30,7 +30,6 @@ namespace XIMALAYA.PCDesktop.Controls
         /// </summary>
         Ellipse
     }
-
     /// <summary>
     /// 带边框的ToggleButton
     /// </summary>
@@ -204,13 +203,8 @@ namespace XIMALAYA.PCDesktop.Controls
         private ColorAnimation ColorCheckedAnimation { get; set; }
 
         /// <summary>
-        /// 构造
+        /// 
         /// </summary>
-        public MyToggleButton()
-            : base()
-        {
-            
-        }
         protected override void OnToggle()
         {
             if (!this.IsSingle)

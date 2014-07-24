@@ -14,6 +14,7 @@ namespace XIMALAYA.PCDesktop.Tools
         #region fields
 
         private bool _IsSettingFlyoutShow = false;
+        private bool _IsShowListView;
 
         #endregion
 
@@ -42,6 +43,24 @@ namespace XIMALAYA.PCDesktop.Tools
                     {
                         ModuleName = WellKnownModuleNames.SettingsModule
                     });
+                }
+            }
+        }
+        /// <summary>
+        /// 显示当前播放列表
+        /// </summary>
+        public bool IsShowListView
+        {
+            get
+            {
+                return _IsShowListView;
+            }
+            set
+            {
+                if (value != _IsShowListView)
+                {
+                    _IsShowListView = value;
+                    this.RaisePropertyChanged(() => this.IsShowListView);
                 }
             }
         }

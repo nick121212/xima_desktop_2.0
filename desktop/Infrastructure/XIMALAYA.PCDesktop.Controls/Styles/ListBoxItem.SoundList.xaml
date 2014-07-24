@@ -54,7 +54,6 @@
 	<!--声音列表 end-->
 
 	<!--热门声音 start-->
-
 	<DataTemplate x:Key="MetroHotSoundsItem1Template" DataType="{x:Type ListBoxItem}">
 		<MControls:MyCheckboxButton CommandParameter="{Binding TrackId}"
 								    Command="{Binding PlaySoundCommand,Source={x:Static tools:CommandSingleton.Instance}}"
@@ -143,6 +142,53 @@
 		<Setter Property="MControls:TilePanel.WidthPix" Value="1"/>
 		<Setter Property="MControls:TilePanel.HeightPix" Value="1"/>
 	</Style>
-
 	<!--热门声音 end-->
+
+	<!--当前播放列表 start-->
+
+	<DataTemplate x:Key="PlayingListStyleItemTemplate" DataType="{x:Type ListBoxItem}">
+		<MControls:MyCheckboxButton CommandParameter="{Binding TrackId}"
+								    Command="{Binding PlaySoundCommand,Source={x:Static tools:CommandSingleton.Instance}}"
+								    Height="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=ListBoxItem}, Path=ActualHeight}"
+								    Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=ListBoxItem}, Path=ActualWidth}"
+								    IconData="{Binding ToolbarPlayPath,Source={x:Static MControls:PathData.Instance}}"
+								    Style="{StaticResource MetroMyToggleButton}"
+								    BorderBrush="{DynamicResource AccentColorBrush}"
+								    IconMargin="2"
+								    Background="{DynamicResource WhiteBrush}"
+								    CheckedBorderThickness="1"
+								    SuperScriptSize="35"
+                                    BorderThickness="1">
+			<MControls:MyCheckboxButton.IsChecked>
+				<MultiBinding Converter="{StaticResource MutiBoolConverter}"  ConverterParameter="0" Mode="OneWay">
+					<MultiBinding.Bindings>
+						<Binding Path="BassEngine.IsPlaying" Source="{x:Static tools:CommandSingleton.Instance}" />
+						<Binding Path="TrackId"/>
+						<Binding Path="TrackID" Source="{x:Static tools:CommandSingleton.Instance}"/>
+					</MultiBinding.Bindings>
+				</MultiBinding>
+			</MControls:MyCheckboxButton.IsChecked>
+			<MControls:MyCheckboxButton.Content>
+				<Grid ToolTip="{Binding Title}"  
+					  Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=ListBoxItem}, Path=ActualWidth}">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="Auto"/>
+						<ColumnDefinition Width="Auto"/>
+					</Grid.ColumnDefinitions>
+
+					<TextBlock Grid.Column="0" Margin="5 0" Text="{Binding Title}"/>
+					<TextBlock Grid.Column="1" Margin="5 0" Text="{Binding NickName}"/>
+					<TextBlock Grid.Column="2" Margin="5 0" Text="{Binding Duration,Converter={StaticResource TimeSpanConverter},ConverterParameter=1000}"/>
+
+				</Grid>
+			</MControls:MyCheckboxButton.Content>
+		</MControls:MyCheckboxButton>
+	</DataTemplate>
+
+	<Style x:Key="PlayingListStyle" TargetType="{x:Type ListBoxItem}" BasedOn="{StaticResource ListItemBaseTemp}">
+		<Setter Property="ContentTemplate" Value="{StaticResource PlayingListStyleItemTemplate}"/>
+	</Style>
+
+	<!--当前播放列表 end-->
 </ResourceDictionary>

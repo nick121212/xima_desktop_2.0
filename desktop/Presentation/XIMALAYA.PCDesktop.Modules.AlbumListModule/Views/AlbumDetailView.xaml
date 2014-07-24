@@ -120,7 +120,7 @@
 								          BorderBrush="{DynamicResource AccentColorBrush}">
 					<MControls:MyToggleButton.Content>
 						<Path Data="{Binding VistorUserPath, Source={x:Static MControls:PathData.Instance}}" 
-						  Style="{StaticResource PathStyle}"
+						  Style="{DynamicResource PathStyle}"
 						  Fill="{Binding ForegroundChecked,RelativeSource={RelativeSource AncestorType={x:Type MControls:MyToggleButton}}}" >
 						</Path>
 					</MControls:MyToggleButton.Content>
@@ -139,7 +139,7 @@
 					<MControls:MyToggleButton.Content>
 						<StackPanel Orientation="Horizontal">
 							<Path Data="{Binding SubscribeAlbumPath, Source={x:Static MControls:PathData.Instance}}" 
-						          Style="{StaticResource PathStyle}"
+						          Style="{DynamicResource PathStyle}"
 								  HorizontalAlignment="Left"
 						          Fill="{Binding ForegroundChecked,RelativeSource={RelativeSource AncestorType={x:Type MControls:MyToggleButton}}}" >
 							</Path>
@@ -149,7 +149,7 @@
 					<MControls:MyToggleButton.ContentChecked>
 						<StackPanel Orientation="Horizontal">
 							<Path Data="{Binding SubscribeAlbumPath, Source={x:Static MControls:PathData.Instance}}" 
-						          Style="{StaticResource PathStyle}"
+						          Style="{DynamicResource PathStyle}"
 								  HorizontalAlignment="Left"
 						          Fill="{Binding ForegroundChecked,RelativeSource={RelativeSource AncestorType={x:Type MControls:MyToggleButton}}}" >
 							</Path>
@@ -194,7 +194,7 @@
 								                          BorderBrush="{DynamicResource AccentColorBrush}">
 									<MControls:MyToggleButton.Content>
 										<Path Data="{Binding ToolbarPlayPath, Source={x:Static MControls:PathData.Instance}}" 
-										      Style="{StaticResource PathStyle}"
+										      Style="{DynamicResource PathStyle}"
 											  Width="10"
 											  Height="10"
 										      Margin="4 0 0 0"
@@ -202,7 +202,7 @@
 									</MControls:MyToggleButton.Content>
 									<MControls:MyToggleButton.ContentChecked>
 										<Path Data="{Binding ToolbarPausePath, Source={x:Static MControls:PathData.Instance}}"
-											  Style="{StaticResource PathStyle}"
+											  Style="{DynamicResource PathStyle}"
 											  Width="10"
 											  Height="10"
 											  Fill="{Binding ForegroundChecked,RelativeSource={RelativeSource AncestorType={x:Type MControls:MyToggleButton}}}" />

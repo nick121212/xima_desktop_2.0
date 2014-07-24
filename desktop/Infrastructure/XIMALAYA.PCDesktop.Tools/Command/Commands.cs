@@ -27,6 +27,7 @@ namespace XIMALAYA.PCDesktop.Tools
         #region 字段
 
         private long _TrackID;
+        private ItemCollection _SoundCollection;
 
         #endregion
 
@@ -70,9 +71,23 @@ namespace XIMALAYA.PCDesktop.Tools
         /// </summary>
         public Control CurrentPlayControl { get; set; }
         /// <summary>
-        /// 
+        /// 佔位服务
         /// </summary>
-        public ItemCollection SoundCollection { get; set; }
+        public ItemCollection SoundCollection
+        {
+            get
+            {
+                return _SoundCollection;
+            }
+            set
+            {
+                if (value != _SoundCollection)
+                {
+                    _SoundCollection = value;
+                    this.RaisePropertyChanged(() => this.SoundCollection);
+                }
+            }
+        }
 
         #endregion
 
