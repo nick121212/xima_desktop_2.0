@@ -110,7 +110,6 @@
 							cal:RegionManager.RegionName="{x:Static tools:WellKnownRegionNames.MusicPlayerModuleRegion}"/>
 		</Grid>
 		<WrapPanel DockPanel.Dock="Left" 
-                   Opacity="0.8" 
                    Background="{DynamicResource WhiteColorBrush}">
 			<ContentControl Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=WrapPanel}, Path=ActualWidth}" 
 							Height="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=WrapPanel}, Path=ActualHeight}" 

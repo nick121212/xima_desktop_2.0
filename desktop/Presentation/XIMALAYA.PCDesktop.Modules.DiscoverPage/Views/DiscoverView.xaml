@@ -84,28 +84,28 @@
 				</ListBox>
 			</GroupBox>-->
 			<!--功能-->
-			<GroupBox Header=""
+			<!--<GroupBox Header=""
                       Style="{StaticResource MyMetroGroupBox}"
                       Grid.Column="2" >
 				<MControls:TilePanel TileCount="2" 
 								     TileWidth="290" 
 									 TileMargin="3"
 								     TileHeight="10">
-					<!--最火播主-->
+					--><!--最火播主--><!--
 					<Controls:Tile MControls:TilePanel.WidthPix="1"
 						           MControls:TilePanel.HeightPix="14">
 						<Controls:Tile.Content>
 							<Image Source="pack://application:,,,/XIMALAYA.PCDesktop.Tools;component/Resources/Images/discover/bzbanner@2x.png"/>
 						</Controls:Tile.Content>
 					</Controls:Tile>
-					<!--排行榜-->
+					--><!--排行榜--><!--
 					<Controls:Tile MControls:TilePanel.WidthPix="1"
 						           MControls:TilePanel.HeightPix="14">
 						<Controls:Tile.Content>
 							<Image Source="pack://application:,,,/XIMALAYA.PCDesktop.Tools;component/Resources/Images/discover/phbbanner@2x.png"/>
 						</Controls:Tile.Content>
 					</Controls:Tile>
-					<!--懒人电台-->
+					--><!--懒人电台--><!--
 					<Controls:Tile MControls:TilePanel.WidthPix="2"
 								   MControls:TilePanel.HeightPix="10"
 								   Background="White">
@@ -134,7 +134,7 @@
 								   Source="pack://application:,,,/XIMALAYA.PCDesktop.Tools;component/Resources/Images/discover/arrow@2x.png" />
 						</Grid>
 					</Controls:Tile>
-					<!--专题-->
+					--><!--专题--><!--
 					<Controls:Tile MControls:TilePanel.WidthPix="2"
 								   MControls:TilePanel.HeightPix="10"
 								   Background="White">
@@ -163,7 +163,7 @@
 								   Source="pack://application:,,,/XIMALAYA.PCDesktop.Tools;component/Resources/Images/discover/arrow@2x.png" />
 						</Grid>
 					</Controls:Tile>
-					<!--热门活动-->
+					--><!--热门活动--><!--
 					<Controls:Tile MControls:TilePanel.WidthPix="2"
 								   MControls:TilePanel.HeightPix="10"
 								   Background="White">
@@ -194,7 +194,7 @@
 					</Controls:Tile>
 
 				</MControls:TilePanel>
-			</GroupBox>
+			</GroupBox>-->
 			<!--推荐专辑-->
 			<GroupBox Header="推荐专辑"
                       Style="{StaticResource MyMetroGroupBox}"

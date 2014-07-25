@@ -556,7 +556,6 @@ namespace XIMALAYA.PCDesktop.Tools.Player
             // now load all libs manually
             Un4seen.Bass.Bass.LoadMe(targetPath);
 
-            float down;
             Window mainWindow = Application.Current.MainWindow;
             WindowInteropHelper interopHelper = new WindowInteropHelper(mainWindow);
 
@@ -568,7 +567,7 @@ namespace XIMALAYA.PCDesktop.Tools.Player
             Un4seen.Bass.Bass.BASS_SetConfig(Un4seen.Bass.BASSConfig.BASS_CONFIG_NET_TIMEOUT, 15000);
 
             this.EndTrackSyncProc = this.EndTrack;
-            this.DownloadProc = new DOWNLOADPROC((a, b, c) =>
+            this.DownloadProc = new DOWNLOADPROC((buffer, length, user) =>
             {
                 if (this.TotalSize <= 0)
                 {
@@ -576,9 +575,17 @@ namespace XIMALAYA.PCDesktop.Tools.Player
                 }
                 if (this.TotalSize > 0)
                 {
-                    down = Bass.BASS_StreamGetFilePosition(this.ActiveStreamHandle, BASSStreamFilePosition.BASS_FILEPOS_DOWNLOAD);
-                    this.Process = down / this.TotalSize;
-                    Debug.WriteLine(down, this.TotalSize.ToString());
+                    if (buffer == IntPtr.Zero)
+                    {
+                        this.Process = 1;
+                    }
+                    else
+                    {
+                        this.Process = (
+                            Bass.BASS_StreamGetFilePosition(this.ActiveStreamHandle, BASSStreamFilePosition.BASS_FILEPOS_DOWNLOAD) -
+                            Bass.BASS_StreamGetFilePosition(this.ActiveStreamHandle, BASSStreamFilePosition.BASS_FILEPOS_CURRENT)
+                            ) / this.TotalSize;
+                    }
                     if (this.Process > 0 && !this.IsAutoPlayed)
                     {
                         this.IsAutoPlayed = true;

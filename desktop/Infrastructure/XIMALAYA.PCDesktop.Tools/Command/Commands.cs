@@ -139,10 +139,13 @@ namespace XIMALAYA.PCDesktop.Tools
             this.PrevCommand = new DelegateCommand(() =>
             {
                 if (this.SoundCollection == null) return;
-                if (this.SoundCollection.MoveCurrentToPrevious())
+                Application.Current.Dispatcher.Invoke(new Action(() =>
                 {
-                    this.PlaySoundCommand.Execute(((SoundData)this.SoundCollection.CurrentItem).TrackId);
-                }
+                    if (this.SoundCollection.MoveCurrentToPrevious())
+                    {
+                        this.PlaySoundCommand.Execute(((SoundData)this.SoundCollection.CurrentItem).TrackId);
+                    }
+                }), null);
             }, () =>
             {
                 if (this.SoundCollection == null) return false;
@@ -152,10 +155,13 @@ namespace XIMALAYA.PCDesktop.Tools
             this.NextCommand = new DelegateCommand(() =>
             {
                 if (this.SoundCollection == null) return;
-                if (this.SoundCollection.MoveCurrentToNext())
+                Application.Current.Dispatcher.Invoke(new Action(() =>
                 {
-                    this.PlaySoundCommand.Execute(((SoundData)this.SoundCollection.CurrentItem).TrackId);
-                }
+                    if (this.SoundCollection.MoveCurrentToNext())
+                    {
+                        this.PlaySoundCommand.Execute(((SoundData)this.SoundCollection.CurrentItem).TrackId);
+                    }
+                }), null);
             }, () =>
             {
                 if (this.SoundCollection == null) return false;
