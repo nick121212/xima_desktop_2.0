@@ -206,9 +206,9 @@
 					<ListBox.ItemsPanel>
 						<ItemsPanelTemplate>
 							<MControls:TilePanel TileHeight="110" 
-                                                 TileWidth="220" 
+                                                 TileWidth="120" 
                                                  TileMargin="3"
-                                                 TileCount="1"/>
+                                                 TileCount="2"/>
 						</ItemsPanelTemplate>
 					</ListBox.ItemsPanel>
 				</ListBox>

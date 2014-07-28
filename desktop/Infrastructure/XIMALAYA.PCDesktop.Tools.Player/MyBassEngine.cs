@@ -542,7 +542,7 @@ namespace XIMALAYA.PCDesktop.Tools.Player
 
         #region Constructor
 
-        private BassEngine()
+        static BassEngine()
         {
             Un4seen.Bass.BassNet.Registration("yk000123@sina.com", "2X34201017282922");
 
@@ -555,7 +555,10 @@ namespace XIMALAYA.PCDesktop.Tools.Player
 
             // now load all libs manually
             Un4seen.Bass.Bass.LoadMe(targetPath);
+        }
 
+        private BassEngine()
+        {
             Window mainWindow = Application.Current.MainWindow;
             WindowInteropHelper interopHelper = new WindowInteropHelper(mainWindow);
 

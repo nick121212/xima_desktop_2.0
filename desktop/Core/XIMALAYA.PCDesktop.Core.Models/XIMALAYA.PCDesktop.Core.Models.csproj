@@ -49,9 +49,7 @@
     <Compile Include="Album\AlbumData.cs" />
     <Compile Include="Album\AlbumInfoResult.cs" />
     <Compile Include="Base.cs" />
-    <Compile Include="Category\CategoryDiscoverData.cs" />
-    <Compile Include="Discover\HotSoundsResult.cs" />
-    <Compile Include="Recommend\RecommendAlbumResult.cs" />
+    <Compile Include="Album\AlbumInfoResult1.cs" />
     <Compile Include="BaseData.cs" />
     <Compile Include="Category\CategoryData.cs" />
     <Compile Include="Category\CategoryResult.cs" />
@@ -66,7 +64,6 @@
     <Compile Include="Sound\SoundData1.cs" />
     <Compile Include="Sound\SoundsResult.cs" />
     <Compile Include="Subject\SubjectData.cs" />
-    <Compile Include="Subject\SubjectListResult.cs" />
     <Compile Include="Tags\CategoryTagResult.cs" />
     <Compile Include="Tags\TagData.cs" />
     <Compile Include="Tags\TagAlbumsResult.cs" />

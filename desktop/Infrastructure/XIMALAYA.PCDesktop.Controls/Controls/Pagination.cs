@@ -320,7 +320,11 @@ namespace XIMALAYA.PCDesktop.Controls
                 this.CurrentPage = this.TotalPage;
                 return;
             }
-
+            if (this.TotalPage < 2)
+            {
+                this.Visibility = System.Windows.Visibility.Hidden;
+                return;
+            }
             if (this.CurrentPage < this.InnerCount * 2)
             {
                 this.AddPageNoFront();

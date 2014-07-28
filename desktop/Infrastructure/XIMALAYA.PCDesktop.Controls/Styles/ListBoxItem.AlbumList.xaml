@@ -10,7 +10,7 @@
         <ResourceDictionary Source="pack://application:,,,/XIMALAYA.PCDesktop.Controls;component/Styles/ListBoxItem.Common.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <!--专辑列表 start-->
+    <!--标签下的专辑列表 start-->
     <DataTemplate x:Key="AlbumItemTemplate" DataType="{x:Type ListBoxItem}">
         <Controls:Tile Background="Transparent" 
                        Height="220" 
@@ -75,10 +75,12 @@
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="ContentTemplate" Value="{StaticResource AlbumItemTemplate}"/>
     </Style>
-    <!--专辑列表 end-->
+	<!--标签下的专辑列表 end-->
 
+	<!--发现页热门专辑 start-->
     <DataTemplate x:Key="MetroAlbumItemTemplate" DataType="{x:Type ListBoxItem}">
         <Controls:Tile Background="Transparent" 
+					   ToolTip="{Binding Title}"
                        Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=ListBoxItem}, Path=ActualWidth}"
                        Height="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=ListBoxItem}, Path=ActualHeight}"
                        Margin="0"
@@ -106,5 +108,7 @@
         <Setter Property="MControls:TilePanel.HeightPix" Value="1"/>
         <Setter Property="ContentTemplate" Value="{StaticResource MetroAlbumItemTemplate}"/>
     </Style>
+
+	<!--发现页热门专辑 end-->
 
 </ResourceDictionary>

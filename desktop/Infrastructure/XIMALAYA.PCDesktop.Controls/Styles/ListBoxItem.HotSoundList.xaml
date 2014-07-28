@@ -14,7 +14,7 @@
 
 	
 	
-	<!--热门声音Group start-->
+	<!--热门声音Group not used start-->
 
 	<DataTemplate x:Key="MetroHotSoundsItemTemplate" DataType="{x:Type ListBoxItem}">
 		<GroupBox Style="{StaticResource MyMetroGroupBox}"

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<fields>
+  
+  <field type="System.Int64" converter="AlbumID" to="id" />
+  <field type="System.String" converter="Title" to="title" />
+  <field type="System.String" converter="AlbumCoverUrl290" to="albumCoverUrl290" />
+  
+  <field type="System.String" converter="AlbumCoverUrl86" to="AlbumCoverUrl86" />
+  <field type="System.String" converter="AlbumCoverUrl140" to="AlbumCoverUrl140" />
+  <field type="System.String" converter="AlbumCoverUrl640" to="AlbumCoverUrl640" />
+  <field type="System.String" converter="AlbumNickName" to="AlbumNickName" />
+  <field type="System.String" converter="AvatarPath" to="AvatarPath" />
+  <field type="System.String" converter="AvatarPath86" to="AvatarPath86" />
+  <field type="System.Int64" converter="CategoryID" to="CategoryID" />
+  <field type="System.String" converter="CoverPath" to="CoverPath" />
+  <field type="System.Int64" converter="CreateDate" to="CreateDate" />
+  <field type="System.String" converter="DigStatus" to="DigStatus" />
+  <field type="System.String" converter="HumanCategoryID" to="HumanCategoryID" />
+  <field type="System.String" converter="Intro" to="Intro" />
+  <field type="System.Boolean" converter="IsVerified" to="IsVerified" />
+  <field type="System.Boolean" converter="IsCrawler" to="IsCrawler" />
+  <field type="System.Boolean" converter="IsDelete" to="IsDelete" />
+  <field type="System.Boolean" converter="IsPublic" to="IsPublic" />
+  <field type="System.Boolean" converter="IsPublish" to="IsPublish" />
+  <field type="System.Boolean" converter="IsFavorite" to="IsFavorite" />
+  <field type="System.Boolean" converter="IsRecordsDesc" to="IsRecordsDesc" />
+  <field type="System.Boolean" converter="IsV" to="IsV" />
+  <field type="System.Int64" converter="LastUptrackDate" to="LastUptrackDate" />
+  <field type="System.String" converter="LastUptrackCoverPath" to="LastUptrackCoverPath" />
+  <field type="System.Int64" converter="LastUptrackID" to="LastUptrackID" />
+  <field type="System.String" converter="MusicCategory" to="MusicCategory" />
+  <field type="System.String" converter="NickName" to="NickName" />
+  <field type="System.String" converter="OpType" to="OpType" />
+  <field type="System.Int64" converter="PlayCount" to="PlayCount" />
+  <field type="System.String" converter="RichIntro" to="RichIntro" />
+  <field type="System.String" converter="ShortIntro" to="ShortIntro" />
+  <field type="System.String" converter="SourceUrl" to="SourceUrl" />
+  <field type="System.Int32" converter="Status" to="Status" />
+  <field type="System.String" converter="Tags" to="Tags" />
+  <field type="System.Int32" converter="TrackCount" to="TrackCount" />
+  <field type="System.Int32" converter="TrackOrder" to="TrackOrder" />
+  <field type="System.Int64" converter="Uid" to="Uid" />
+  <field type="System.Int64" converter="UpdateDate" to="UpdateDate" />
+  <field type="System.Int32" converter="UserSource" to="UserSource" />
+  <field type="System.Int32" converter="SerialState" to="SerialState" />
+</fields>
+

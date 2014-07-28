@@ -143,10 +143,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Styles\ListBoxItem.SubjectList.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Styles\ListBoxItem.TagList.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
