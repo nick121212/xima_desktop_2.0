@@ -63,7 +63,7 @@ namespace XIMALAYA.PCDesktop.Modules.AlbumListModule
         private void OnChangeTagEventArgument()
         {
             var albumView = this.Container.GetInstance<AlbumView>();
-            string regionName = this.ContainerView.GetFlyout(this.TagEventArgument.TagName);
+            string regionName = this.ContainerView.GetFlyout(this.TagEventArgument.Title);
 
             if (albumView != null)
             {
@@ -113,7 +113,7 @@ namespace XIMALAYA.PCDesktop.Modules.AlbumListModule
                 this.TagEventArgument = e;
             });
 
-            //标签点击事件，获取专辑数据
+            //标签点击事件，获取专辑详情数据
             this.EventAggregator.GetEvent<AlbumDetailEvent<long>>().Subscribe(e =>
             {
                 this.OnAlbumDetailEvent(e);

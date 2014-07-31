@@ -97,12 +97,12 @@ namespace XIMALAYA.PCDesktop.Modules.MusicPlayer
                     return;
                 }
                 SoundData soundData = SoundCache.Instance[TrackId];
-                if (soundData != null)
-                {
-                    this.SoundData = soundData;
-                    CommandSingleton.Instance.TrackID = this.SoundData.TrackId;
-                    this.BassEngine.OpenUrlAsync(this.SoundData.PlayUrl64);
-                }
+                if (soundData == null) return;
+                if (soundData.PlayUrl32 == null && soundData.PlayUrl64 == null) return;
+
+                this.SoundData = soundData;
+                CommandSingleton.Instance.TrackID = this.SoundData.TrackId;
+                this.BassEngine.OpenUrlAsync(this.SoundData.PlayUrl64 == null ? this.SoundData.PlayUrl32 : this.SoundData.PlayUrl64);
             });
         }
 

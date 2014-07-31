@@ -113,6 +113,14 @@ namespace XIMALAYA.PCDesktop.Tools
         /// 下一首命令
         /// </summary>
         public DelegateCommand NextCommand { get; set; }
+        /// <summary>
+        /// 热门专辑命令
+        /// </summary>
+        public DelegateCommand HotAlbumListCommand { get; set; }
+        /// <summary>
+        /// 声音详情页命令
+        /// </summary>
+        public DelegateCommand ShowSoundDetailCommand { get; set; }
 
         #endregion
 
@@ -193,6 +201,20 @@ namespace XIMALAYA.PCDesktop.Tools
                 if (albumID == null) return;
 
                 this.EventAggregator.GetEvent<AlbumDetailEvent<long>>().Publish((long)albumID);
+            });
+
+            this.HotAlbumListCommand = new DelegateCommand(() =>
+            {
+                this.EventAggregator.GetEvent<AlbumListEvent<TagEventArgument>>().Publish(new TagEventArgument()
+                {
+                    Category = "all",
+                    Title = "热门",
+                    TagName = " ",
+                });
+            });
+
+            this.ShowSoundDetailCommand = new DelegateCommand(() => {
+                this.EventAggregator.GetEvent<SoundDetailEvent<long>>().Publish(this.TrackID);
             });
         }
 

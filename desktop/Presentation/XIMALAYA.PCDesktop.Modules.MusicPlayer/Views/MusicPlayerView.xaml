@@ -197,7 +197,31 @@
 					</Path>
 				</MControls:MyToggleButton.ContentChecked>
 			</MControls:MyToggleButton>
-
+			<!--声音详情页-->
+			<MControls:MyToggleButton Width="30" 
+								      Height="30"
+									  Margin="5"
+								      BorderType="Ellipse"
+								      Foreground="White"
+									  IsSingle="True"
+									  Command="{Binding ShowSoundDetailCommand,Source={x:Static tools:CommandSingleton.Instance}}"
+								      BackgroundChecked="{DynamicResource GrayBrush10}"
+								      Background="{DynamicResource AccentColorBrush}"
+								      BorderBrush="{DynamicResource AccentColorBrush}"
+								      BorderThickness="1">
+				<MControls:MyToggleButton.Content>
+					<Path Data="{Binding ListViewPath, Source={x:Static MControls:PathData.Instance}}" 
+						  Style="{StaticResource PathStyle}"
+						  Fill="{Binding ForegroundChecked,RelativeSource={RelativeSource AncestorType={x:Type MControls:MyToggleButton}}}" >
+					</Path>
+				</MControls:MyToggleButton.Content>
+				<MControls:MyToggleButton.ContentChecked>
+					<Path Data="{Binding ListViewPath, Source={x:Static MControls:PathData.Instance}}"
+						  Style="{StaticResource PathStyle}"
+						  Fill="{Binding ForegroundChecked,RelativeSource={RelativeSource AncestorType={x:Type MControls:MyToggleButton}}}" >
+					</Path>
+				</MControls:MyToggleButton.ContentChecked>
+			</MControls:MyToggleButton>
 		</StackPanel>
 
 		<!--人物头像-->

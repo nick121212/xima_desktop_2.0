@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Diagnostics;
@@ -136,6 +137,12 @@ namespace XIMALAYA.PCDesktop
             this.NotifyIcon.Icon = Icon.ExtractAssociatedIcon(System.Windows.Forms.Application.ExecutablePath);
             this.NotifyIcon.Visible = true;
             this.NotifyIcon.ShowBalloonTip(2000);
+
+            this.NotifyIcon.MouseClick += new System.Windows.Forms.MouseEventHandler((sender, MouseEventAtrs) =>
+            {
+                Window win = System.Windows.Application.Current.MainWindow;
+                win.Visibility = win.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
+            });
 
             //this.NotifyIcon.MouseClick += new System.Windows.Forms.MouseEventHandler(notifyIcon_MouseClick);
 

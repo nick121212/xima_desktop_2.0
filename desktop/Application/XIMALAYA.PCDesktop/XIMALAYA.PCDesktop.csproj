@@ -100,6 +100,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="DarkBlue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ExpressionDark.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ExpressionLight.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Shell.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -146,15 +158,15 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="icon_16.ico" />
+    <Resource Include="ICO\icon_16.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Pause.ico" />
-    <Resource Include="Play.ico" />
+    <Resource Include="ICO\Pause.ico" />
+    <Resource Include="ICO\Play.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="next.ico" />
-    <Resource Include="prev.ico" />
+    <Resource Include="ICO\next.ico" />
+    <Resource Include="ICO\prev.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

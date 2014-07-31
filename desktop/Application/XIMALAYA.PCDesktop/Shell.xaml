@@ -15,7 +15,7 @@
                       Height="750"
                       FontFamily="微软雅黑"
                       WindowStartupLocation="CenterScreen">
-	<!--Icon="icon_16.ico"-->
+	<!--Icon="ico/icon_16.ico"-->
 	<Window.Resources>
 		<Style x:Key="CleanWindowStyle" TargetType="Controls:MetroWindow" BasedOn="{StaticResource CleanWindowStyleKey}" />
 		<BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
@@ -24,25 +24,27 @@
 	<!--任务栏进度条-->
 	<Controls:MetroWindow.TaskbarItemInfo>
 		<TaskbarItemInfo x:Name="taskBar" 
-                         Description="Taskbar Items Sample">
+						 ProgressState="Normal"
+						 ProgressValue="{Binding BassEngine.CurrentProcess}"
+                         Description="{Binding WindowTitle}">
 			<TaskbarItemInfo.ThumbButtonInfos>
 				<ThumbButtonInfoCollection>
 					<ThumbButtonInfo DismissWhenClicked="True"
-									 ImageSource="prev.ico"
+									 ImageSource="ico/prev.ico"
                                      Command="{Binding PrevCommand,Source={x:Static tools:CommandSingleton.Instance}}">
 					</ThumbButtonInfo>
 					<ThumbButtonInfo DismissWhenClicked="True"
-									 ImageSource="Play.ico"
+									 ImageSource="ico/Play.ico"
 									 Visibility="{Binding BassEngine.CanPlay,Converter={StaticResource BooleanToVisibilityConverter}}"
                                      Command="{Binding BassEngine.PlayCommand}">
 					</ThumbButtonInfo>
 					<ThumbButtonInfo DismissWhenClicked="True"
-									 ImageSource="Pause.ico"
+									 ImageSource="ico/Pause.ico"
 									 Visibility="{Binding BassEngine.CanPause,Converter={StaticResource BooleanToVisibilityConverter}}"
                                      Command="{Binding BassEngine.PlayCommand}">
 					</ThumbButtonInfo>
 					<ThumbButtonInfo DismissWhenClicked="True"
-									 ImageSource="next.ico"
+									 ImageSource="ico/next.ico"
                                      Command="{Binding NextCommand,Source={x:Static tools:CommandSingleton.Instance}}">
 					</ThumbButtonInfo>
 				</ThumbButtonInfoCollection>
