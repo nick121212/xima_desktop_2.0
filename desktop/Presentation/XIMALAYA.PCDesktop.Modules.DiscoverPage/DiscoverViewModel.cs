@@ -117,13 +117,13 @@ namespace XIMALAYA.PCDesktop.Modules.DiscoverPage
                         index++;
                         this.FocusImageList.Add(fi);
                     }
-                    index = 0;
-                    foreach (var album in superData.Albums.List)
-                    {
-                        album.IsFirst = index == 0;
-                        index++;
-                        this.AlbumList.Add(album);
-                    }
+                    //index = 0;
+                    //foreach (var album in superData.Albums.List)
+                    //{
+                    //    album.IsFirst = index == 0;
+                    //    index++;
+                    //    this.AlbumList.Add(album);
+                    //}
                     index = 0;
                     foreach (var category in superData.Categories.List)
                     {

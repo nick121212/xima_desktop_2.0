@@ -9,12 +9,14 @@ namespace XIMALAYA.PCDesktop.Tools
     /// 泛型单例
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public abstract class Singleton<T>
+    public abstract class Singleton<T> where T : class
     {
         private static readonly Lazy<T> _instance =
             new Lazy<T>(() =>
             {
-                var ctors = typeof(T).GetConstructors(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
+                var ctors = typeof(T).GetConstructors(BindingFlags.Instance 
+                    | BindingFlags.NonPublic 
+                    | BindingFlags.Public);
 
                 if (ctors.Count() != 1)
                 {
@@ -28,9 +30,7 @@ namespace XIMALAYA.PCDesktop.Tools
 
                 return (T)ctor.Invoke(null);
             });
-        /// <summary>
-        /// 静态单例属性
-        /// </summary>
+
         public static T Instance
         {
             get

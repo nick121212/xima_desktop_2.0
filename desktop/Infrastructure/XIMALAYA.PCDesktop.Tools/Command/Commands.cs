@@ -28,6 +28,7 @@ namespace XIMALAYA.PCDesktop.Tools
 
         private long _TrackID;
         private ItemCollection _SoundCollection;
+        private string _TrackTitle;
 
         #endregion
 
@@ -38,7 +39,7 @@ namespace XIMALAYA.PCDesktop.Tools
         /// </summary>
         private IEventAggregator EventAggregator { get; set; }
         /// <summary>
-        /// 当前播放的声音
+        /// 当前播放的声音ID
         /// </summary>
         public long TrackID
         {
@@ -53,6 +54,24 @@ namespace XIMALAYA.PCDesktop.Tools
                     _TrackID = value;
                     this.RaisePropertyChanged(() => this.TrackID);
                     this.PlaySoundCommand.RaiseCanExecuteChanged();
+                }
+            }
+        }
+        /// <summary>
+        /// 当前播放的声音Title
+        /// </summary>
+        public string TrackTitle
+        {
+            get
+            {
+                return _TrackTitle;
+            }
+            set
+            {
+                if (value != _TrackTitle)
+                {
+                    _TrackTitle = value;
+                    this.RaisePropertyChanged(() => this.TrackTitle);
                 }
             }
         }

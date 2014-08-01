@@ -142,6 +142,10 @@ namespace XIMALAYA.PCDesktop
             {
                 Window win = System.Windows.Application.Current.MainWindow;
                 win.Visibility = win.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
+                if (win.Visibility == Visibility.Visible)
+                {
+                    win.Focus();
+                }
             });
 
             //this.NotifyIcon.MouseClick += new System.Windows.Forms.MouseEventHandler(notifyIcon_MouseClick);

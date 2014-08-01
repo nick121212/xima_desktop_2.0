@@ -196,7 +196,7 @@
 				</MControls:TilePanel>
 			</GroupBox>-->
 			<!--推荐专辑-->
-			<GroupBox Header="推荐专辑"
+			<!--<GroupBox Header="推荐专辑"
                       Style="{StaticResource MyMetroGroupBox}"
                       Grid.Column="4" >
 				<ListBox Background="Transparent"
@@ -212,7 +212,7 @@
 						</ItemsPanelTemplate>
 					</ListBox.ItemsPanel>
 				</ListBox>
-			</GroupBox>
+			</GroupBox>-->
 			<!--热门声音-->
 			<!--
 			<ListBox Grid.Column="4" 

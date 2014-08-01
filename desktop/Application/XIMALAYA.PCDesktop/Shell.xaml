@@ -10,8 +10,8 @@
                       GlowBrush="{DynamicResource AccentColorBrush}"
                       Title="{Binding WindowTitle}" 
                       MinHeight="700"
-                      MinWidth="960"
-                      Width="1050"
+                      MinWidth="1045"
+                      Width="1045"
                       Height="750"
                       FontFamily="微软雅黑"
                       WindowStartupLocation="CenterScreen">
@@ -26,7 +26,7 @@
 		<TaskbarItemInfo x:Name="taskBar" 
 						 ProgressState="Normal"
 						 ProgressValue="{Binding BassEngine.CurrentProcess}"
-                         Description="{Binding WindowTitle}">
+                         Description="{Binding TrackTitle,Source={x:Static tools:CommandSingleton.Instance}}">
 			<TaskbarItemInfo.ThumbButtonInfos>
 				<ThumbButtonInfoCollection>
 					<ThumbButtonInfo DismissWhenClicked="True"

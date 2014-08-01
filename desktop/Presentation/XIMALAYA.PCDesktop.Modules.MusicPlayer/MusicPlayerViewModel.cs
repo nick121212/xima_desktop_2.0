@@ -102,6 +102,7 @@ namespace XIMALAYA.PCDesktop.Modules.MusicPlayer
 
                 this.SoundData = soundData;
                 CommandSingleton.Instance.TrackID = this.SoundData.TrackId;
+                CommandSingleton.Instance.TrackTitle = this.SoundData.Title;
                 this.BassEngine.OpenUrlAsync(this.SoundData.PlayUrl64 == null ? this.SoundData.PlayUrl32 : this.SoundData.PlayUrl64);
             });
         }

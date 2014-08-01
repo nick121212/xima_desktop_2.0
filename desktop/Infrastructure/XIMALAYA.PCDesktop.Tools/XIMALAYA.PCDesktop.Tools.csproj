@@ -79,8 +79,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Attributes\IParamConvert.cs" />
-    <Compile Include="Attributes\ParamConvertAttribute.cs" />
     <Compile Include="Behaviors\AutoPopulateExportedViewsBehavior.cs" />
     <Compile Include="Command\Commands.cs" />
     <Compile Include="Converter\HalfValueConverter.cs" />
