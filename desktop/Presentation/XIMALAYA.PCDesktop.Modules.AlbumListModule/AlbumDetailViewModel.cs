@@ -115,6 +115,7 @@ namespace XIMALAYA.PCDesktop.Modules.AlbumListModule
                         SoundCache.Instance.SetData(albumInfo.SoundsResult.Sounds);
                         foreach (SoundData sound in albumInfo.SoundsResult.Sounds)
                         {
+                            sound.Duration *= 1000;
                             this.Sounds.Add(sound);
                         }
                     }
@@ -144,7 +145,6 @@ namespace XIMALAYA.PCDesktop.Modules.AlbumListModule
                 };
                 this.PageSize = (int)this.Params.PerPage;
                 this.CurrentPage = 1;
-                //this.GetData(true);
             }
         }
 

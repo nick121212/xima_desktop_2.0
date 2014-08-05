@@ -47,7 +47,7 @@
 			<!--分类列表-->
 			<GroupBox Header=" "
                       Style="{StaticResource MyMetroGroupBox}"
-					  Margin="0"
+					  Margin="0 0 20 0"
                       Grid.Column="1">
 				<ListBox Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=GroupBox}, Path=Width}"
                          Height="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=GroupBox}, Path=Height}"

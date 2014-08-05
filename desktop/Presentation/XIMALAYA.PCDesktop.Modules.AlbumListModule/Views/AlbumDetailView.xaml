@@ -11,6 +11,7 @@
 
 	<UserControl.Resources>
 		<converter:MutiBoolConverter x:Key="MutiBoolConverter" />
+		<converter:TimeSpanConverter x:Key="TimeSpanConverter"/>
 	</UserControl.Resources>
 
 	<Grid Margin="30 10">
@@ -174,12 +175,14 @@
 				      CanUserDeleteRows="False"
 					  AlternationCount="2"
                       SelectionUnit="FullRow"
+					  ColumnWidth="*"
+					  IsReadOnly="True"
 				      HeadersVisibility="None"
 				      GridLinesVisibility="Horizontal"
                       ItemsSource="{Binding Path=Sounds}"
                       AutoGenerateColumns="False">
 				<DataGrid.Columns>
-					<DataGridTemplateColumn>
+					<DataGridTemplateColumn Width="40">
 						<DataGridTemplateColumn.CellTemplate>
 							<DataTemplate>
 								<!--CommandParameter="{Binding TrackId}"
@@ -228,7 +231,9 @@
 						</DataGridTemplateColumn.CellTemplate>
 					</DataGridTemplateColumn>
 					<DataGridTextColumn Header="声音标题" Binding="{Binding Title}" />
-					<DataGridTextColumn Header="用户" Binding="{Binding NickName}" />
+					<DataGridTextColumn Width="200" Header="用户" Binding="{Binding NickName}" />
+					<DataGridTextColumn Width="80" Header="时长" Binding="{Binding Duration,Converter={StaticResource TimeSpanConverter}}" />
+					<DataGridTextColumn Width="200" Header="创建时间" Binding="{Binding CreateAt}" />
 				</DataGrid.Columns>
 			</DataGrid>
 			<!--分页控件-->

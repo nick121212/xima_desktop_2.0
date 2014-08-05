@@ -58,7 +58,7 @@
                           Grid.Row="0"
                           Grid.Column="0"
                           Grid.ColumnSpan="5"
-						  HorizontalAlignment="Left"
+						  HorizontalAlignment="Stretch"
                           Height="{Binding TitlebarHeight, RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay}"
                           Visibility="{TemplateBinding ShowTitleBar, Converter={StaticResource BooleanToVisibilityConverter}}">
 

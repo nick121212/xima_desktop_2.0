@@ -58,11 +58,11 @@
     <Compile Include="FocusImage\FocusImageData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FocusImage\FocusImageResult.cs" />
-    <Compile Include="Sound\SoundData.cs" />
-    <Compile Include="Sound\SoundData3.cs" />
-    <Compile Include="Sound\SoundData2.cs" />
-    <Compile Include="Sound\SoundData1.cs" />
-    <Compile Include="Sound\SoundsResult.cs" />
+    <Compile Include="FocusImage\Sound\SoundData.cs" />
+    <Compile Include="FocusImage\Sound\SoundData3.cs" />
+    <Compile Include="FocusImage\Sound\SoundData2.cs" />
+    <Compile Include="FocusImage\Sound\SoundData1.cs" />
+    <Compile Include="FocusImage\Sound\SoundsResult.cs" />
     <Compile Include="Subject\SubjectData.cs" />
     <Compile Include="Tags\CategoryTagResult.cs" />
     <Compile Include="Tags\TagData.cs" />

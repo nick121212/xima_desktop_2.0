@@ -124,11 +124,17 @@ namespace XIMALAYA.PCDesktop.Modules.DiscoverPage
                     //    index++;
                     //    this.AlbumList.Add(album);
                     //}
-                    index = 0;
+                    //index = 0;
+                    DiscoverViewModel.CategoryList.Add(new CategoryData
+                    {
+                        Title = "搜索",
+                        Name = "search",
+                        //CoverPath = "pack://application:,,,/XIMALAYA.PCDesktop.Tools;component/Resources/Images/search.png"
+                    });
                     foreach (var category in superData.Categories.List)
                     {
-                        category.IsFirst = index == 0;
-                        index++;
+                        //category.IsFirst = index == 0;
+                        //index++;
                         DiscoverViewModel.CategoryList.Add(category);
                     }
                 }, System.Windows.Threading.DispatcherPriority.Background);

@@ -662,7 +662,7 @@ namespace XIMALAYA.PCDesktop.Tools.Player
                             Bass.BASS_StreamGetFilePosition(this.ActiveStreamHandle, BASSStreamFilePosition.BASS_FILEPOS_DOWNLOAD)
                             ) / this.TotalSize;
                     }
-                    if (this.Process > 0 && !this.IsAutoPlayed)
+                    if (this.Process > 0.1 && !this.IsAutoPlayed)
                     {
                         this.IsAutoPlayed = true;
                         this.Play();

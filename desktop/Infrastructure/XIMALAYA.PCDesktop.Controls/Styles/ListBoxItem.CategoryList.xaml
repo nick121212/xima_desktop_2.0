@@ -56,8 +56,8 @@
 		</MControls:MyRadioButton>
 	</DataTemplate>
 	<Style x:Key="MetroCategoryStyle" TargetType="{x:Type ListBoxItem}" BasedOn="{StaticResource ListItemBaseTemp}">
-		<Setter Property="MControls:TilePanel.WidthPix" Value="1"/>
-		<Setter Property="MControls:TilePanel.HeightPix" Value="1"/>
+		<Setter Property="MControls:TilePanel.WidthPix" Value="{Binding WidthPix}"/>
+		<Setter Property="MControls:TilePanel.HeightPix" Value="{Binding HeightPix}"/>
 		<Setter Property="ContentTemplate" Value="{StaticResource MetroCategoryItemTemplate}"/>
 		<Style.Triggers>
 			<DataTrigger Binding="{Binding IsFirst}" Value="True">
